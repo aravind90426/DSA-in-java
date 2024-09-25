@@ -17,7 +17,11 @@ public class Main {
         l.display();
         l.delete(2);
         l.display();
+        l.insertRec(10,0);
+        l.display();
+        l.insertRec(25,2);
+        l.display();
         System.out.println(l.size());
-        System.out.println(l.find(33));
+
     }
 }
