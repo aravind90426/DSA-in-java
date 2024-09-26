@@ -1,11 +1,11 @@
 package LinkedList.DoublyLinkedList;
 
-public class LL {
+public class DL {
 
     private Node head;
     private Node tail;
     private int size;
-    public LL()
+    public DL()
     {
         size=0;
     }
