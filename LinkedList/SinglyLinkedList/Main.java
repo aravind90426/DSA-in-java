@@ -3,24 +3,19 @@ package LinkedList.SinglyLinkedList;
 public class Main {
     public static void main(String[] args) {
         LL l = new LL();
-        l.insertFront(20);
-        l.insertFront(30);
-        l.insertEnd(10);
-        l.insert(33,1);
+        l.insertFront(4);
+        l.insertFront(2);
+        l.insertFront(1);
+        LL l2 = new LL();
+        l2.insertFront(5);
+        l2.insertFront(4);
+        l2.insertFront(3);
+        l2.insertFront(1);
         l.display();
-        l.deleteFront();
-        l.display();
-        l.insert(55,1);
-        l.insertFront(22);
-        l.display();
-        l.deleteEnd();
-        l.display();
-        l.delete(2);
-        l.display();
-        l.insertRec(10,0);
-        l.display();
-        l.insertRec(25,2);
-        l.display();
+        l2.display();
+        LL.merge(l,l2).display();
+
+
         System.out.println(l.size());
 
     }

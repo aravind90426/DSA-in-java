@@ -68,6 +68,7 @@ public int delete(int index){
     }
     public Node insertRec(int val,int index,Node node)
     {
+
         if(index==0)
         {
             Node newNode = new Node(val,node);
@@ -163,4 +164,128 @@ public int delete(int index){
 
         }
     }
+    //problems
+
+    // https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+
+    public void duplicates()
+    {
+        Node node = head;
+        while(node.next!= null)
+        {
+            if(node.data==node.next.data)
+            {
+                node.next=node.next.next;
+                size-=1;
+            }
+            else
+            node=node.next;
+        }
+    }
+
+    // problem -2
+    //merge two list
+
+    public static  LL merge(LL first,LL second)
+    {
+        Node f= first.head;
+        Node s=second.head;
+        LL ans = new LL();
+        while(f!=null && s!=null)
+        {
+            if(f.data<s.data) {
+                ans.insertFront(f.data);
+                f=f.next;
+            }
+            else{
+                ans.insertFront(s.data);
+                s=s.next;
+            }
+
+        }
+        while(f!=null)
+        {
+            ans.insertFront(f.data);
+            f=f.next;
+        }
+        while(s!=null)
+        {
+         ans.insertFront(s.data);
+         s=s.next;
+        }
+        return  ans;
+    }
+
+
+    // problem -3
+
+    //has cycle
+
+    //https://leetcode.com/problems/linked-list-cycle/submissions/
+
+
+
+
+    /*
+      it uses tow pointer
+        -> slow pointer       -    run once step
+        -> Fast pointer       -     Run two Steps
+
+        at it has a cycle defenetly slow and fast pointer meet at one or two cycles
+        if meet
+            return true;
+
+
+     */
+
+    public static boolean hasCycle(Node head) {
+        Node fast= head;
+    Node slow =head;
+        while(fast!=null&& fast.next!=null){
+            fast=fast.next.next;
+            slow = slow.next;
+            if(fast==slow)
+                return true;
+        }
+
+
+        return false;
+    }
+
+
+    /*
+    Problem -4    Cycle Length
+
+     same approach
+     if we identified it has cycle when s==f
+        pause the fast point
+        move the slow poinert to the fast pointer and calculate the length;
+
+     */
+
+    public static int cycleLength(Node head) {
+        Node fast= head;
+        Node slow =head;
+        while(fast!=null&& fast.next!=null){
+            fast=fast.next.next;
+            slow = slow.next;
+            if(fast==slow) {
+
+                int length=0;
+                Node temp = slow;
+                do{
+                    temp=temp.next;
+                    length+=1;
+                }
+                while(temp!=fast);
+                return length;
+            }
+        }
+
+
+        return 0;
+    }
+
+
+
 }
