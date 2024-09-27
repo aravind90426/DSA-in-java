@@ -286,6 +286,86 @@ public int delete(int index){
         return 0;
     }
 
+/*
+      // problem -5
+
+      //https://leetcode.com/problems/linked-list-cycle-ii/
+
+      linked list cycle -II  aim ; to find the start index of the cycle
+
+      1) find the length iof the cycle
+
+      2) move th slow pointer to the length of cycle from the begining
+
+      3) move slow pointer and fast pointer one by one they met at one point that is start of the cycle
+
+ */
+
+    public Node detectCycle(Node head) {
+            int length= cycleLength(head);
+            Node s =head;
+            Node f=head;
+            if(length==0)return null;
+            while(length>0)
+            {
+                s=s.next;
+                length--;
+            }
+            while(s!=f)
+            {
+                f=f.next;
+                s=s.next;
+            }
+            return f;
+    }
+// problem no 6
+
+    //https://leetcode.com/problems/happy-number/submissions/
+    // we can use two pointer aproach whithout using linked list
+
+    public boolean isHappy(int n) {
+        int slow=n;
+        int fast =n;
+        do{
+            slow= sqsum(slow);
+            fast=sqsum(sqsum(fast));
+
+        }while(slow!=fast);
+            if(slow==1)
+                return true;
+            else
+                return false;
+    }
+    public static int sqsum(int n){
+        int temp=n;
+        int ans=0;
+        while(n>0)
+        {
+            int rem = n%10;
+            ans+=rem*rem;
+            n=n/10;
+
+        }
+
+        return ans;
+    }
+
+
+    //problem no 7
+    //  finding middle of linked list
+    //https://leetcode.com/problems/middle-of-the-linked-list/submissions/
+
+    public Node middleNode(Node head) {
+        Node slow =head;
+        Node fast = head;
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return fast;
+    }
+
 
 
 }
