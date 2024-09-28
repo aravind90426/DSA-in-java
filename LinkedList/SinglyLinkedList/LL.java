@@ -367,6 +367,49 @@ public int delete(int index){
         return fast;
     }
 
+//problem no 8
+    // mergesort
 
+    //bubble sort;
+    public void bubbleSort(){
+        bubbleSort(size-1,0);
+    }
+    private void bubbleSort(int r,int c){
+        if(r==0)
+            return;
+        if(r>c) {
+            Node f = get(c);
+            Node s = get(c + 1);
+            if (f.data > s.data) {
+                if (f == head) {
+                    head = s;
+                    f.next = s.next;
+                    head.next = f;
+                }
+
+             else if (s == tail) {
+                Node prev = get(c - 1);
+                prev.next = s;
+
+                tail = s;
+                f.next = null;
+                s.next = tail;
+
+
+            } else {
+                Node prev = get(c - 1);
+                prev.next = s;
+                f.next = s.next;
+                s.next = f;
+
+
+            }}
+
+            bubbleSort(r, c + 1);
+        }
+        else
+            bubbleSort(r-1,0);
+
+    }
 
 }

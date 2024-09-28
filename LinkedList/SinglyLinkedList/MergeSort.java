@@ -27,7 +27,7 @@ public class MergeSort {
          ListNode mid= getMid(head);
          ListNode left = mergeSort(head);
          ListNode right = mergeSort(mid);
-         return  merge(left,right)
+         return  merge(left,right);
      }
 
 
