@@ -184,6 +184,7 @@ public int delete(int index){
     }
 
     // problem -2
+    //
     //merge two list
 
     public static  LL merge(LL first,LL second)
