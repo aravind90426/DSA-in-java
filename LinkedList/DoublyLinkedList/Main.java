@@ -2,7 +2,7 @@ package LinkedList.DoublyLinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        LL l = new LL();
+        DL l = new DL();
         l.insertFront(29);
         l.insertFront(129);
         l.insertFront(27);

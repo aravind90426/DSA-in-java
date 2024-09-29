@@ -412,4 +412,60 @@ public int delete(int index){
 
     }
 
+
+    /*
+    problem no 10;
+
+    reverse using recursion
+
+
+     */
+    public void reverse(Node node)
+    {
+        if(node==tail)
+        {
+            head= tail;
+            return;
+
+        }
+        reverse(node.next);
+        tail.next=node;
+        tail=node;
+        tail.next=null;
+    }
+
+
+    /*
+    problem -11
+    https://leetcode.com/problems/reverse-linked-list/submissions/
+       with out recursion only have head
+
+       using 3 pointers
+       pres prev and next
+     */
+
+    public Node reverseList(Node head) {
+        if(size<=1)
+            return null;
+       Node prev=null;
+       Node pres=head;
+       Node nextt=head.next;
+        while(pres!=null)
+        {
+
+            pres.next = prev;
+            prev = pres;
+            pres=nextt;
+            if(nextt!=null)
+                nextt=nextt.next;
+
+
+
+        }
+        return prev;
+
+    }
+
+
+
 }

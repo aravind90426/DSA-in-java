@@ -16,6 +16,8 @@ public class Main {
         l.bubbleSort();
 
       l.display();
+      l.reverse();
+
 
 
 
