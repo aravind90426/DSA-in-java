@@ -466,6 +466,43 @@ public int delete(int index){
 
     }
 
+// probvlem 12
+    //https://leetcode.com/problems/reverse-linked-list-ii/
+public Node reverseBetween(Node head, int l, int r) {
+    if(l==r)return head;
+    Node current=head;
+    Node prev=null;
+    // moving n-1 node
+    for(int i=0;current.next!=null &&i<l-1;i++)
+    {
+        prev=current;
+        current=current.next;
+    }
+
+    Node last=prev;
+  Node lend=current;
+
+    //reverse
+    Node n=current.next;
+    for(int i=0;i<r-l+1;i++)
+    {
+        current.next=prev;
+        prev=current;
+        current=n;
+        if(n!=null)
+            n=n.next;
+
+
+    }
+    if(last!=null)
+        last.next=prev;
+    else
+        head=prev;
+
+
+    lend.next=current;
+    return head;
+}
 
 
 }
