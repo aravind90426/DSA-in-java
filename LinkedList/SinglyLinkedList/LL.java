@@ -503,6 +503,23 @@ public Node reverseBetween(Node head, int l, int r) {
     lend.next=current;
     return head;
 }
+//problem 13
+    //https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/
+    public Node deleteMiddle(Node head) {
+        if(head.next==null)
+            return null;
+    Node slow = head;
+       Node fast = head;
+        Node prev = null;
+        while(fast!=null && fast.next!=null)
+        {
+            prev=slow;
+            slow=slow.next;
+            fast=fast.next.next;
 
+        }
+        prev.next=slow.next;
+        return head;
+    }
 
 }
