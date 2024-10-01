@@ -521,5 +521,29 @@ public Node reverseBetween(Node head, int l, int r) {
         prev.next=slow.next;
         return head;
     }
+// problem no -14
+    // is palindrome
+    // reverse second half then check firat and second until null
 
+    public boolean isPalindrome(Node head) {
+        Node mi = middleNode(head);
+
+        Node shead=reverseList(mi);
+        Node s2head =shead;
+        while(head!=null && shead!=null)
+        {
+            if(head.data!=shead.data)
+            {
+                break;
+            }
+            head=head.next;
+            shead=shead.next;
+        }
+
+        return head==null || shead==null;
+
+
+
+
+    }
 }
