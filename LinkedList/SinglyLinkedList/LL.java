@@ -546,4 +546,32 @@ public Node reverseBetween(Node head, int l, int r) {
 
 
     }
-}
+
+
+
+
+public void reorderList(Node head) {
+    if(head==null || head.next==null)
+        return;
+
+    Node mid = middleNode(head);
+
+
+   Node hs= reverseList(mid);
+  Node hf= head;
+    // rearrange
+    while(hf!=null && hs!=null)
+    {
+        Node temp = hf.next;
+        hf.next = hs;
+        hf=temp;
+
+        temp=hs.next;
+        hs.next=hf;
+        hs=temp;
+    }
+    if(hf!=null)
+        hf.next=null;
+
+
+}}
