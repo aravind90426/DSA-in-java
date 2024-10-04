@@ -549,7 +549,7 @@ public Node reverseBetween(Node head, int l, int r) {
 
 
 
-
+//problem no - 15
 public void reorderList(Node head) {
     if(head==null || head.next==null)
         return;
@@ -576,22 +576,22 @@ public void reorderList(Node head) {
 
 }
 //https://leetcode.com/problems/reverse-nodes-in-k-group/
-
-    public ListNode reverseKGroup(ListNode head, int k) {
+//problem no - 16
+    public Node reverseKGroup(Node head, int k) {
         if (k <= 1 || head == null) {
             return head;
         }
 
-        ListNode current = head;
-        ListNode prev = null;
+        Node current = head;
+        Node prev = null;
 
         int length = getLength(head);
         int count = length / k;
         while (count > 0) {
             Node last = prev;
-            LNode newEnd = current;
+            Node newEnd = current;
 
-            ListNode next = current.next;
+            Node next = current.next;
             for (int i = 0; current != null && i < k; i++) {
                 current.next = prev;
                 prev = current;
@@ -624,4 +624,45 @@ public void reorderList(Node head) {
         }
         return length;
     }
+
+
+
+
+// https://leetcode.com/problems/remove-nth-node-from-end-of-list/submissions/
+// problem no - 17
+    public Node removeNthFromEnd(Node head, int n) {
+        head= reverse(head);
+        if(n==1)
+        {
+            head=head.next;
+            if(head==null)
+                return null;
+
+        }
+        else{
+
+
+            Node prev= null;
+            Node curr= head;
+
+
+            for(int i=1;i<n;i++)
+            { prev=curr;
+                curr=curr.next;
+
+            }
+            if(curr!=null)
+                prev.next=curr.next;
+
+            else
+            {
+                prev.next=null;
+            }
+
+        }
+         reverse(head);
+        return head;
+    }
+
+
 }
