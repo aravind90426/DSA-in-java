@@ -631,7 +631,7 @@ public void reorderList(Node head) {
 // https://leetcode.com/problems/remove-nth-node-from-end-of-list/submissions/
 // problem no - 17
     public Node removeNthFromEnd(Node head, int n) {
-        head= reverse(head);
+        reverse(head);
         if(n==1)
         {
             head=head.next;
@@ -663,6 +663,42 @@ public void reorderList(Node head) {
          reverse(head);
         return head;
     }
+//https://leetcode.com/problems/rotate-list/
+    public Node rotateRight(Node head, int k) {
+        if(head==null||head.next==null|| k<=0) return head;
+       Node last = head;
+        int length =1;
+
+        while(last.next!=null)
+        {
+            last=last.next;
+            length++;
+
+        }
+
+        int rotation = k%length;
+
+        last.next=head;
+        int skip = length-rotation;
+        Node temp = head;
+        for(int i=0;i<skip-1;i++)
+        {
+            temp=temp.next;
 
 
+        }System.out.println(last.data);
+        System.out.println(temp.data);
+
+        head=temp.next;
+        temp.next=null;
+
+
+
+
+
+        return head;
+
+
+
+    }
 }
