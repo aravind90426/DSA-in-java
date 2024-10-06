@@ -2,6 +2,25 @@ package LinkedList.SinglyLinkedList;
 
 public class LL {
 
+
+    public class Node {
+        int data;
+        Node next;
+
+        public Node(int data)
+        {
+            this.data=data;
+
+        }
+        public Node(int data, Node next)
+        {
+            this.data= data;
+
+            this.next=next;
+
+
+        }
+    }
     private Node head;
     private Node tail;
     private int  size;
@@ -465,6 +484,7 @@ public int delete(int index){
         return prev;
 
     }
+    //
 
 // probvlem 12
     //https://leetcode.com/problems/reverse-linked-list-ii/
@@ -700,5 +720,10 @@ public void reorderList(Node head) {
 
 
 
+    }
+//https://leetcode.com/problems/delete-node-in-a-linked-list/
+    public void deleteNodeNotGivenHead(Node node) {
+        node.data = node.next.data;
+        node.next=node.next.next;
     }
 }
