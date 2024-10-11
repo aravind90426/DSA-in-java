@@ -62,4 +62,12 @@ public class MergeSort {
         tail.next = (list1 != null) ? list1 : list2;
         return dummyHead.next;
     }
+    // fibonacci in recursion
+    public int fibo(int n)
+    {
+        if(n==1|| n==0)
+            return n;
+        return fibo(n)+fibo(n-1);
+
+    }
 }

@@ -135,6 +135,21 @@ public   int delete(int index)
         System.out.println("End");
 
     }
+    public Node reverseDLL(Node head) {
+
+        if(head==null || head.next==null)
+            return head;
+
+        while(head.next!=null)
+        {
+           Node temp =head.next;
+            head.next=head.prev;
+            head.prev= temp;
+            head=head.prev;
+        }
+        head.next=head.prev;
+        return head;
+    }
 
 
 

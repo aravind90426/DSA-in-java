@@ -165,24 +165,7 @@ public int delete(int index){
         size=0;
     }
 
-    public class Node {
-        int data;
-        Node next;
 
-        public Node(int data)
-        {
-            this.data=data;
-
-        }
-        public Node(int data, Node next)
-        {
-            this.data= data;
-
-            this.next=next;
-
-
-        }
-    }
     //problems
 
     // https://leetcode.com/problems/remove-duplicates-from-sorted-list/
