@@ -1,4 +1,9 @@
 package SlidingWindowAndTwoPointer.SlidingWindow;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /*
 Sliding window
 
@@ -45,5 +50,42 @@ public class Basic {
         return max;
     }
 
-    //
+    //https://leetcode.com/problems/find-all-anagrams-in-a-string/submissions/
+
+    public List<Integer> findAnagrams(String s, String p) {
+
+
+
+        List<Integer> ans = new ArrayList<>();
+
+        if(p.length()>s.length())
+            return ans;
+
+        int[] ss= new int[26];
+        int[] pp = new int[26];
+        for (char i : p.toCharArray()) {
+            pp[i - 'a']++;
+        }
+        for(int i=0;i<p.length();i++)
+        {
+            ss[s.charAt(i)-'a']++;
+        }
+        if(Arrays.equals(ss,pp))
+        {
+            ans.add(0);
+        }
+        for(int i=p.length();i<s.length();i++)
+        {
+            ss[s.charAt(i)-'a']++;
+            ss[s.charAt(i-p.length())-'a']--;
+            if(Arrays.equals(ss,pp))
+                ans.add(i-p.length()+1);
+
+        }
+
+
+        return ans;
+
+
+    }
 }
