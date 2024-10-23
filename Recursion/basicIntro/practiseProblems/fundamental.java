@@ -28,4 +28,24 @@ public class fundamental {
         return isIt(s,i+1,j-1);
     }
 
+
+  //2  https://leetcode.com/problems/fibonacci-number/submissions/
+    // fibonacci
+
+  public int fib(int n) {
+      if(n==0||n==1)
+          return n;
+      return fib(n-1)+fib(n-2);
+
+  }
+
+  //3  https://leetcode.com/problems/reverse-integer/
+  public int reverse(int n) {
+      if(n<10)
+          return n;
+      return  (n%10)*(int)Math.pow(10,(int)Math.log10(n)) + reverse(n/10);
+  }
 }
+
+
+

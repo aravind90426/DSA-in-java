@@ -32,6 +32,7 @@ public class Subset {
     }
 
 //2  https://leetcode.com/problems/subsets-ii/
+public List<List<Integer>> subsets2(int[] nums) {
 
     List<List<Integer>> outer = new ArrayList<>();
       Arrays.sort(nums);
