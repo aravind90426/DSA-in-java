@@ -1,0 +1,317 @@
+
+  PACKAGES
+-------------
+
+-> packages is like a folder . it contains classes and interfaces.
+
+->it is in hierarical manner which means a folder inside another folder
+
+-> it can be two types
+
+   1-pre defined package
+                eg util package, time package etc
+
+   2-User defined package
+
+-> package keyword
+-----------------------
+ which is used to move the class to package and the class belong to its package.
+
+import keyword
+-----------------
+
+ it can be used to import another package classes in now using class.
+
+
+
+package  Apack;
+public class Cl1 {
+    public void prin()
+    {
+        System.out.println("iam in package Apack");
+    }
+
+}
+
+
+package  Bpack;
+
+import Apack.Cl1;  //  else Apack.*  we can access all the class in Apack.
+
+public class Bcl1 {
+    public static void main(String[] args) {
+        Cl1  s = new Cl1();
+        s.prin();
+    }
+}
+
+
+-> in the Bpack  we can access the Apack class c1
+-> 1st we can create object for the class cl1 and compiler will ask to import.
+
+
+
+
+---------------------------------------------------------------------------------------
+
+STATIC
+-------
+-> when a member is declared static . it can be accessed before any of the object of the class is been created and with out referring to any object
+you can be accesed.
+-> it does not depended on object . no object is been created you can still use it.
+-> it can be accessed by class name
+
+
+public class Student{
+
+    int rno;
+    String name;
+    int age;
+    static long population;
+    public Student(int rno, String name, int age)
+    {
+        this.rno=rno;
+        this.name=name;
+        this.age=age;
+        Student.population +=1;        // static variable can be accessed by  class name
+    }
+
+    }
+public class Main {
+    public static void main(String[] args) {
+       Student s = new Student(1,"arav",19);
+        Student s2 = new Student(2,"pavi",21);
+        Student s3 = new Student(3,"ragu",19);
+        System.out.println(Student.population);  // 3    population is common to all . so it does not depends on object  it can be defined and accessed by class name
+
+    }
+}
+
+
+Non static method inside static
+----------------------------------
+
+->  inside static method it can be acess only static method
+->  its doesnot access non static method
+->  Static method can directly access by class name
+
+public class Main {
+    public  static void main(String[] args) {
+        greeting();    // we cannot access  non static method inside static method
+    }
+                      // we know something which is non static belongs to an object
+    public  void greeting()
+    {
+        System.out.println("hai");
+    }
+}
+
+
+ ->  if you want access not static method in static create object for that class and access it.
+
+public class Main {
+    public  static void main(String[] args) {
+        Main m = new Main();
+        m.greeting();
+    }
+    public   void greeting()
+    {
+        System.out.println("hai");
+    }
+}
+
+
+static method inside non static
+
+-------------------------------
+
+-> you can access static method inside non static
+
+public class Main {
+    public  static void main(String[] args) {
+        Main m = new Main();
+        m.greeting();    //iam static nex
+    }
+    public   void greeting()
+    {
+        nex();
+    }
+    public static void nex()
+    {
+        System.out.println("iam static nex");
+    }
+}
+
+
+
+static method inside static
+-----------------------------
+public class Main {
+    public  static void main(String[] args) {
+       nex();   // or  Main.nex();
+    }
+    public static void nex()
+    {
+        System.out.println("iam static nex");
+    }
+}
+
+
+
+-> we cannot use this keyword inside static method
+
+
+
+Initialization  of static variables
+-------------------------------------
+
+ public class Main {
+
+    static int a = 10;
+    static int b;
+
+    static {   // it will run once , when the first obj is creat i.e. when the class is loaded for the first time
+        System.out.println("hai");
+        b=a*5;
+
+    }
+
+    public static void main(String[] args) {
+        Main m = new Main();
+     System.out.println(Main.a+"   "+ Main.b);
+     b=b+2;
+     System.out.println(Main.a+"   "+ Main.b);
+
+
+    }
+}
+
+output
+ _____________________
+|                     |
+|   hai               |
+|   10   50           |
+|   10   52           |
+|                     |
+|_____________________|
+
+
+
+inner class
+--------------
+
+-> outer class must be not static . inner class only static.
+
+
+public class Ilas {
+    static class Test{                   // it will not depended on outer classs if it wil be not static it will depends on outer class
+         int age;
+
+         public Test(int i) {
+             this.age = i;
+         }
+
+
+    }
+    public static void main(String[] args) {
+       Test a= new Test(8);       // if Test class is not static  it will give error
+       Test b = new Test(9);
+    }
+}
+
+
+
+class Test{
+    static String name;
+
+    public Test(String name) {
+        Test.name = name;
+    }
+
+
+}
+
+public class Bcl1 {
+
+    public static void main(String[] args) {
+       Test a= new Test( " RAVi");
+       Test b = new Test("ARun");
+       System.out.println(a.name);   // ARun
+       System.out.println(b.name);   // ARun
+
+
+    }
+}
+
+public class outerclassa {
+   static class Test{    // it doesn not depends on outer class
+         String name;
+
+        public Test(String name) {
+            this.name = name;
+        }
+   }
+   public static void main(String[] args) {
+       Test a= new Test( " RAVi");
+       Test b = new Test("ARun");
+       System.out.println(a.name);  // RAVi
+       System.out.println(b.name);  // ARun
+
+
+    }
+}
+
+
+---------------------------------------------------------------------
+
+SINGLETON CLASS
+-----------------
+
+-> it is a class which can  allow only one objet to create that is known as singleton class.
+
+-> it constructoir is must private   // which helps to user cannot be create object.
+
+
+public class Student{
+
+   private Student(){
+      System.out.println('h');
+   }
+   private static Student instance;
+  public static Student getInstance()
+  {
+      if( instance== null)
+      {
+          instance = new Student();
+      }
+      return  instance;
+  }
+    }
+
+
+
+
+public class Main {
+
+
+    public static void main(String[] args) {
+
+    //Student s1 = new Student();   // if you create object it will give error because contructor is private
+
+   Student s1 = Student.getInstance();
+   Student s2 = Student.getInstance();
+   Student s3= Student.getInstance();
+
+    // all 3 reference variable(s1,s2,s3 )  are pointing to just one object
+
+        }
+    }
+
+
+
+output
+
+h
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
