@@ -1,0 +1,93 @@
+java oops
+
+OBJECT ORIENTED PROGRAMMING LANGUAGE
+
+
+CLASS
+    class is a named group of properties and function.
+
+  ->  class is an template of object
+
+  ->  simply known as
+
+     class is a logical construct
+
+
+OBJECT
+
+  -> object is an instead of class
+(its follow the class template and creates an object)
+
+  -> simply known as physical entity  // occupies space in memory.
+
+
+->  objects are stored in heap memory.
+->   reference variable are stored in stack memory.( object ku vekka pora name)
+
+eg
+
+public class Student{
+    int rno;
+    String name;
+    float marks;
+}
+public class Main {
+    public static void main(String[] args)
+    {
+        // creating object for that class
+
+        Student s1=new Student();
+
+        // new :: dynamically allocate memory and returns a reference variable to it
+
+
+                                    // default value
+        System.out.println(s1.rno);   //0
+        System.out.println(s1.name);  // null
+        System.out.println(s1.marks); // 0.0
+        //  boolean                   // false
+    }
+
+}
+
+
+
+
+	student s1      =      new student():
+	__________              _____________
+
+       compile time             | run time
+				|
+				| memory will be allocate at the runtime
+
+
+assignig values
+----------------
+
+  Student s1=new Student();
+
+        s1.name="arun";
+        s1.rno=6;
+        s1.marks=90.0f;
+
+        System.out.println(s1.rno);          // arun
+        System.out.println(s1.name);        // 6
+        System.out.println(s1.marks);       //90.0
+
+
+
+
+
+you can also create multiple objects
+	Student s1=new Student();
+	Student s2=new Student();
+	Student s3=new Student();
+	Student s4=new Student();
+
+
+s1,s2.... are stored in stack memory
+they are called reference variable
+
+name,rno,marks  are stored in heap memory
+they are called object variables
+
