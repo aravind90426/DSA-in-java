@@ -89,8 +89,8 @@ but last level can fill left to right
 Use case:
 _-------
 
-1) compression
-2) Segment BT
+->compression
+-> Segment BT
 
 3)  Perfect Binary Tree
 
@@ -139,7 +139,7 @@ N n0des = log(N+1) min levels
 
 N-1 = internal Nodes
 
-No of leaf nodes = No of internal Nodes
+No of leaf nodes = No of internal Nodes +1
 
 
 5) Strict BT
