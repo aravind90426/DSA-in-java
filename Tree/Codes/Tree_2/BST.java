@@ -1,6 +1,6 @@
-package Tree.Codes;
+package Tree.Codes.Tree_2;
 
-import java.util.Scanner;
+import java.util.Queue;
 
 public class BST {
     public static class  Node{
@@ -118,12 +118,25 @@ public class BST {
         display(node.left,"left Node of "+node.value+" is : ");
         display(node.right,"Right node of "+node.value+" is : ");
     }
+    /*
+public void bfs(Node node, Queue<Node> q)
+{
+    if(q.isEmpty())
+        return;
+
+    System.out.print(q.poll().value+" -> ");
+    q.add(node.left,q);
+    q.add(node.right,q);
+    bfs(node.left,q);
+    bfs(node.right,q);
+}*/
 
     public static void main(String[] args) {
         BST b = new BST();
         int[] arr = {15,11,12,10,18,17,16};
         b.insert(arr);
         b.display();
+
         System.out.println(b.isBalanced());
 
     }

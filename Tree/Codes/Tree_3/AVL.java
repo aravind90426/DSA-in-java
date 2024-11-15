@@ -1,6 +1,4 @@
-package Tree.Codes;
-
-import java.util.Scanner;
+package Tree.Codes.Tree_3;
 
 public class AVL {
     public static class  Node{

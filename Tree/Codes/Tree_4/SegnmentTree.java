@@ -1,4 +1,4 @@
-package Tree.Codes;
+package Tree.Codes.Tree_4;
 
 public class SegnmentTree {
     public static void main(String[] args) {
