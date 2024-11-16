@@ -146,7 +146,7 @@ public class Problems {
 
 
 
-
+// problem
     public List<Double> averageOfLevels(Node root) {
 
         List<Double> ans = new ArrayList<>();
@@ -171,5 +171,134 @@ public class Problems {
             ans.add(sum);
         }
         return ans;
+    }
+
+
+
+
+
+
+
+    // level order scuccessor
+    // Nextr element of successor
+
+    public Node Successor(Node root,int target) {
+
+
+
+        if(root==null)
+            return null;
+
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty())
+        {
+
+            Node temp =q.poll();
+
+            if(temp.left!=null)
+            {
+                q.offer(temp.left);
+            }
+            if(temp.right !=null)
+            {
+                q.offer(temp.right);
+            }
+            if(temp.value==target)
+                break;
+
+        }
+
+
+
+
+
+
+        return q.peek();
+    }
+
+// leetcode 103 zigzag printing
+    public List<List<Integer>> zigzagLevelOrder(Node root) {
+        List<List<Integer>>  outer = new ArrayList<>();
+        if(root == null) return outer;
+
+        Deque<Node> q = new ArrayDeque<Node>();
+        q.add(root);
+        boolean rev = false;
+
+        while(!q.isEmpty())
+        { List<Integer> inner = new ArrayList<>();
+            int n = q.size();
+            if(!rev)
+            {
+                rev= true;
+                for(int i=0;i<n;i++)
+                {
+                   Node node = q.pollFirst();
+                    inner.add(node.value);
+                    if(node.left!=null)
+                        q.addLast(node.left);
+                    if(node.right!=null)
+                        q.addLast(node.right);
+                }
+
+
+            }
+            else
+            {
+                rev= false;
+                for(int i=0;i<n;i++)
+                {
+                    Node node = q.pollLast();
+                    inner.add(node.value);
+                    if(node.right!=null)
+                        q.addFirst(node.right);
+                    if(node.left!=null)
+                        q.addFirst(node.left);
+
+                }
+
+
+            }
+            outer.add(inner);
+        }
+
+        return outer;
+    }
+
+
+    // level order traversal 2;
+    public List<List<Integer>> levelOrderBottom(Node root) {
+        List<List<Integer>> outer = new ArrayList<>();
+        if(root==null)
+            return outer;
+
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty())
+        { int si = q.size();
+            List<Integer> inner = new ArrayList<>(si);
+            for(int i=0;i<si;i++)
+            {
+                Node temp =q.poll();
+                inner.add(temp.value);
+                if(temp.left!=null)
+                {
+                    q.offer(temp.left);
+                }
+                if(temp.right !=null)
+                {
+                    q.offer(temp.right);
+                }
+
+            }
+            outer.add(0,inner);
+
+        }
+
+
+        return outer;
+
+
     }
 }
