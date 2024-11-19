@@ -7,7 +7,7 @@ public class MazeProblems {
     public static void main(String[] args) {
         boolean[][] arr = new boolean[3][3];
 
-        AllPathmazeObstacle(arr,"",0,0);
+        //AllPathmazeObstacle(arr,"",0,0);
         //System.out.println();
     }
 
