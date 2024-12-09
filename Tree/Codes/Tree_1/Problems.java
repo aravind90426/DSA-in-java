@@ -1,10 +1,12 @@
 package Tree.Codes.Tree_1;
+import javax.swing.tree.TreeNode;
 import java.util.*;
 public class Problems {
     public static class Node{
         int value;
         Node left;
         Node right;
+        Node next;
         Node(int val)
         {
             this.value=val;
@@ -301,4 +303,249 @@ public class Problems {
 
 
     }
+
+
+
+// Leetcode 116   connect  like linked list in level order
+    public Node connect(Node root) {
+        if(root ==null) return null;
+
+        Node leftMost = root;
+        while(leftMost.left!=null)
+        {
+            Node current = leftMost;
+            while(current !=null)
+            {
+                current.left.next= current.right;
+                if(current.next!=null)
+                {
+                    current.right.next=current.next.left;
+                }
+                current = current.next;
+            }
+            leftMost = leftMost.left;
+
+        }
+
+        return root;
+    }
+
+    // Leetcode : 199. Binary Tree Right Side View
+    public List<Integer> rightSideView(Node root) {
+        List<Integer> a = new ArrayList<>();
+        if(root==null)
+            return a;
+        Queue<Node> q = new LinkedList<>();
+
+        q.add(root);
+        while(!q.isEmpty())
+        {
+            int l = q.size();
+            for(int i=0;i<l;i++)
+            {
+                Node temp = q.poll();
+                if(temp.left!=null)
+                    q.offer(temp.left);
+                if(temp.right!=null)
+                    q.offer(temp.right);
+                if(i==l-1)
+                    a.add(temp.value);
+            }
+        }
+        return a;
+
+
+
+    }
+        // leetcode :993 cousins in BinaryTree
+
+      public boolean isCousins(Node root, int x, int y) {
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty())
+        {
+            int n = q.size();
+
+            ArrayList<Integer> arr = new ArrayList<>();
+            int c=0;
+            for(int i=0;i<n;i++)
+            {
+               Node temp = q.poll();
+
+                   // check their current childs are not siblings
+                if(temp.left!=null && temp.right!=null){
+                    if((temp.left.value==x && temp.right.value==y  ) ||(temp.left.value==y && temp.right.value==x  ) ){
+                        return false;
+                    }
+
+                }
+                if(temp.left!=null)
+                {
+                    q.add(temp.left);
+                    if(temp.left.value==x || temp.left.value == y)
+                        c++;
+                }
+                if(temp.right!=null)
+                {
+                    q.add(temp.right);
+                    if(temp.right.value==x || temp.right.value == y)
+                        c++;
+                }
+
+            }
+         //   if current level  both the x and y are present return true
+            if(c==2)
+                return true;
+        }
+        return false;
+
+
+    }
+// Leetcode: 101 Symmetric tree
+    public boolean isSymmetric(Node root) {
+        Queue<Node> q = new LinkedList<>();
+        if(root==null) return true;
+
+        q.add(root.left);
+        q.add(root.right);
+        while(!q.isEmpty())
+        {
+
+           Node n1=q.poll();
+            Node n2 =q.poll();
+            if(n1==null && n2==null)
+            { continue;
+            }
+            if(n1==null || n2==null)
+            {  return false;
+            }
+            if(n1.value!= n2.value)
+            {  return false;
+            }
+             q.add(n1.left);
+            q.add(n2.right);
+            q.add(n1.right);
+            q.add(n2.left);
+
+        }
+        return true;
+
+    }
+
+
+    // diameter of binary tree
+    int diameter =0;
+    public int diameterOfBinaryTree(TreeNode root) {
+        int height = height(root);
+
+        return diameter-1;
+    }
+    public  int height(Node root)
+    {
+        if(root==null)
+            return 0;
+
+        int left = height(root.left);
+        int right = height(root.right);
+        int dia = left + right + 1;
+        diameter = Math.max(dia,diameter);
+        return Math.max(left,right) + 1;
+    }
+
+
+//226. Invert Binary Tree
+    public Node invertTree(Node root) {
+
+        if(root==null) return null;
+       Node temp = root.left;
+        root.left=root.right;
+        root.right = temp;
+       root.left=  invertTree(root.left);
+        root.right=  invertTree(root.right);
+       return  root;
+
+
+    }
+
+    //104 maximum depth of the tree
+    public int maxDepth(Node root) {
+        if(root==null)
+            return 0;
+        int left= maxDepth(root.left);
+        int right= maxDepth(root.right);
+        return Math.max(left,right)+1;
+
+    }
+
+
+    //114 flatten binary tree to linked list
+    public void flatten(Node root) {
+        Node current = root;
+        while(current!=null)
+        {   Node l1=current;
+           Node temp = current.left;
+            while(temp!=null)
+            {
+                if(temp!=null)
+                {   l1=temp;
+                    temp=temp.right;
+                }
+
+            }
+            l1.right=current.right;
+            if(current.left!=null)
+                current.right=current.left;
+            current.left=null;
+            current = current.right;
+
+
+        }
+    }
+//   LEET CODE : same tree
+    public boolean isSameTree(Node p, Node q) {
+        if(p==null && q==null) return true;
+        if(p!=null && q==null || p==null && q!=null) return false;
+
+        if(p.value!=q.value) return false;
+
+        return isSameTree(p.left,q.left)&& isSameTree(p.right,q.right);
+    }
+
+
+//236. Lowest Common Ancestor of a Binary Tree
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null) return null;
+        if(root.val == p.val || root.val == q.val) return root;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right,p,q);
+        if(left!=null && right!=null)
+            return root;
+        return (left==null)?right:left;
+    }
+
+    //230. Kth Smallest Element in a BST
+    int count=0;
+    public int kthSmallest(Node root, int k) {
+        return helper(root,k).val;
+    }
+
+    Node helper(Node node , int k){
+
+        if(node==null)
+            return null;
+       Node left = helper(node.left,k);
+        if (left != null) {
+            return left;
+        }
+        count++;
+        if(count==k)
+            return node;
+        return helper(node.right,k);
+
+    }
+
+
+
+
 }
