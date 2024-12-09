@@ -565,5 +565,22 @@ public class Problems {
        return node;
    }
 
+    public Node buildTree(int[] inorder, int[] postorder) {
+        if(postorder.length==0)
+            return null;
+        int root = postorder[postorder.length-1];
+        int index =0;
+        for(int i=0;i<inorder.length;i++)
+        {
+            if(inorder[i]==root){
+                index=i;break;}
 
+        }
+      Node node = new Node(root);
+        node.left =buildTree(Arrays.copyOfRange(inorder,0,index),Arrays.copyOfRange(postorder,0,index));
+        node.right =buildTree(Arrays.copyOfRange(inorder,index+1,inorder.length),Arrays.copyOfRange(postorder,index,postorder.length-1));
+        return node;
+
+
+    }
 }
