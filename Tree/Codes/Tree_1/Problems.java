@@ -544,8 +544,26 @@ public class Problems {
         return helper(node.right,k);
 
     }
+// important important important important important important important important important important
 
-
+   //105. Construct Binary Tree from Preorder and Inorder Traversal
+   public Node buildTree(int[] preorder, int[] inorder) {
+       if(preorder.length==0) return null;
+       int index =0;
+       int r = preorder[0];
+       for(int i=0;i<inorder.length;i++)
+       {
+           if(inorder[i]==r)
+           {
+               index=i;
+               break;
+           }
+       }
+       Node node = new Node(r);
+       node.left=buildTree(Arrays.copyOfRange(preorder,1,index+1),Arrays.copyOfRange(inorder,0,index));
+       node.right=buildTree(Arrays.copyOfRange(preorder,index+1,preorder.length),Arrays.copyOfRange(inorder,index+1,inorder.length));
+       return node;
+   }
 
 
 }
