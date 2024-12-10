@@ -583,4 +583,54 @@ public class Problems {
 
 
     }
+
+   // 112. Path Sum
+   public boolean hasPathSum(Node root, int targetSum) {
+
+       if(root==null) return false;
+       if(root.value==targetSum && root.left==null && root.right==null) return true;
+       return hasPathSum(root.left,targetSum-root.value)||hasPathSum(root.right,targetSum-root.value);
+
+   }
+    // https://leetcode.com/problems/serialize-and-deserialize-binary-tree/ hard
+    public List<String> serialize(Node node) {
+        List<String> list = new ArrayList<>();
+        helper(node, list);
+        return list;
+    }
+    void helper(Node node, List<String> list) {
+        if (node == null) {
+            list.add("null");
+            return;
+        }
+
+        list.add(String.valueOf(node.value));
+
+        helper(node.left, list);
+        helper(node.right, list);
+    }
+
+    Node deserialize(List<String> list) {
+        Collections.reverse(list);
+        Node node = helper(list);
+        return node;
+    }
+    Node helper(List<String> list) {
+        String val = list.remove(list.size() - 1);
+
+        if (val.charAt(0) == 'n') {
+            return null;
+        }
+
+        Node node = new Node(Integer.parseInt(val));
+
+        node.left = helper(list);
+        node.right = helper(list);
+
+        return node;
+    }
+}
+
+
+
 }
