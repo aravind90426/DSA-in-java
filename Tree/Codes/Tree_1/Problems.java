@@ -629,8 +629,69 @@ public class Problems {
 
         return node;
     }
+
+    
+    public int sumNumbers(Node root) {
+        return sum(root,0);
+    }
+    int sum(Node root , int s){
+        if(root==null ) return 0;
+        s=s*10+root.value;
+        if(root.left==null && root.right==null )
+        {
+            return s;
+        }
+        int u=0;
+        u+=sum(root.left,s);
+        u+=sum(root.right,s);
+        return  u;
+    }
+
+
+
+//129. Sum Root to Leaf Numbers
+
+public int sumNumbers(TreeNode root) {
+    return helper(root,0);
+}
+int helper(Node root,int s){
+    if(root==null)
+    {
+        return 0;
+    }
+    s=s*10+root.value;
+    if(root.left==null && root.right==null) return s;
+
+    int l = helper(root.left,s);
+    int r = helper(root.right,s);
+    return l+r;
+
+
+
+
+}
+
+//124. Binary Tree Maximum Path Sum
+public int maxPathSum(Node root) {
+
+    helper(root);
+    return max;
+}
+int max=Integer.MIN_VALUE;
+int helper(Node root)
+{
+    if(root==null)
+        return 0;
+
+    int left = helper(root.left);
+    int right= helper(root.right);
+    left= Math.max(0,left);
+    right= Math.max(0,right);
+    max=Math.max(left+right+root.value,max);
+    return Math.max(left,right)+root.value;
+
 }
 
 
-
 }
+
