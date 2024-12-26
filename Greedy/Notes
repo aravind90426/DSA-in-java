@@ -1,0 +1,16 @@
+Greedy method
+
+Feasible solution :   no of solutions satisfies the given constraint
+Optimal Solution :  minimum cost in the feasible solutioon.
+                     there is only one optimal solution in th e feasible solution
+
+optimization prblm: if the prob;lem required either minimum result or maximum result then it is called optimaization
+
+
+greeedy method is used for solving optimization problenm.   and also
+ -> DP and
+    -> Brach and Bound.
+
+
+    greedy method sholuld solve stages.
+    eg) interview selection

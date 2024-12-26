@@ -11,7 +11,7 @@ BinaryTree()
         int value;
         Node left;
         Node right;
-        Node(int val)
+        public Node(int val)
         {
             this.value=val;
         }
@@ -24,7 +24,6 @@ public void populate(Scanner s)
     System.out.println("Enter the Root Node val");
     int val = s.nextInt();
     root = new Node(val);
-
     populate(s,root);
 
     }

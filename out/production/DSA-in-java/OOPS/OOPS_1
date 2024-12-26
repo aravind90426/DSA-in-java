@@ -1,0 +1,503 @@
+TOPICS
+   1) classes and Objects
+   2)constructor
+   3) Wrapper Class
+   4) Final Keyword
+   5) Array of Objects
+
+
+
+
+
+OBJECT ORIENTED PROGRAMMING LANGUAGE
+
+
+CLASS
+    class is a named group of properties and function.
+
+  ->  class is an template of object
+
+  ->  simply known as
+
+     class is a logical construct
+
+
+OBJECT
+
+  -> object is an instead of class
+(its follow the class template and creates an object)
+
+  -> simply known as physical entity  // occupies space in memory.
+
+
+->  objects are stored in heap memory.
+->   reference variable are stored in stack memory.( object ku vekka pora name)
+
+eg
+
+public class Student{
+    int rno;
+    String name;
+    float marks;
+}
+public class Main {
+    public static void main(String[] args)
+    {
+        // creating object for that class
+
+        Student s1=new Student();
+
+        // new :: dynamically allocate memory and returns a reference variable to it
+
+
+                                    // default value
+        System.out.println(s1.rno);   //0
+        System.out.println(s1.name);  // null
+        System.out.println(s1.marks); // 0.0
+        //  boolean                   // false
+    }
+
+}
+
+
+
+
+	student s1      =      new student():
+	__________              _____________
+
+       compile time             | run time
+				|
+				| memory will be allocate at the runtime
+
+
+assignig values
+----------------
+
+  Student s1=new Student();
+
+        s1.name="arun";
+        s1.rno=6;
+        s1.marks=90.0f;
+
+        System.out.println(s1.rno);          // arun
+        System.out.println(s1.name);        // 6
+        System.out.println(s1.marks);       //90.0
+
+
+
+
+
+you can also create multiple objects
+	Student s1=new Student();
+	Student s2=new Student();
+	Student s3=new Student();
+	Student s4=new Student();
+
+
+s1,s2.... are stored in stack memory
+they are called reference variable
+
+name,rno,marks  are stored in heap memory
+they are called object variables
+
+
+
+
+CONSTRUCTOR
+-----------
+ * construcor is a special function that runs which you create an object and
+it allocates some variable
+ *  which is used to initialoze  the object.
+ *  class name and method name must be same.
+ *  it doesnot return any thing.
+
+	public class Student {
+    int rno;
+    String name;
+    float marks;
+    Student() {
+        this.rno = 6;
+        this.name ="ARAVIND";
+        this.marks = 90.00f;
+    }
+
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+
+}
+	public class Main {
+    public static void main(String[] args)
+    {
+
+        Student s1=new Student();
+
+
+
+        System.out.println(s1.rno);       	   // 6
+        System.out.println(s1.name);     	   // ARAVIND
+        System.out.println(s1.marks);    	   //90.0
+
+        Student s2=new Student(7,"arun",60);
+        System.out.println(s2.rno);        	  // 7
+        System.out.println(s2.name);     	   // arun
+        System.out.println(s2.marks);     	  //60.0
+
+
+
+
+    }
+
+}
+
+
+after getting value from user and change it
+
+in main method
+_______________
+
+
+    void  setName(String name)
+    {
+        this.name=name;
+    }
+
+in Studebt class
+________________
+
+ 	Student s1=new Student();
+
+        System.out.println(s1.rno);          // 6
+        System.out.println(s1.name);        // ARAVIND
+        System.out.println(s1.marks);       //90.0
+
+        Student s2=new Student(7 ,"arun" ,90);
+
+        System.out.println(s2.rno);          // 6
+        System.out.println(s2.name);        //
+        System.out.println(s2.marks);       //90.0
+
+        s2.setName("ragu");
+        System.out.println(s2.name);    //ragu
+
+
+copying one object data to another object
+-----------------------------------------
+
+public class Student {
+    int rno;
+    String name;
+    float marks;
+    Student() {
+        this.rno = 6;
+        this.name ="ARAVIND";
+        this.marks = 90.00f;
+    }
+
+    Student( Student other) {
+        this.rno = other.rno;
+        this.name =other.name;
+        this.marks = other.marks;
+    }
+
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+
+}
+
+
+public class Main {
+    public static void main(String[] args)
+    {
+        Student s1=new Student();
+
+        System.out.println(s1.rno);          // 6
+        System.out.println(s1.name);        // ARAVIND
+        System.out.println(s1.marks);       //90.0
+        Student s2=new Student(7 ,"arun" ,90);
+
+        System.out.println(s2.rno);          // 6
+        System.out.println(s2.name);        //arum
+        System.out.println(s2.marks);       //90.0
+
+       Student random = new Student(s2);
+        System.out.println(random.rno);          // 6
+        System.out.println(random.name);        //arun
+        System.out.println(random.marks);       //90.0
+
+
+
+    }
+
+}
+
+
+this - keyword
+
+ * it will refers to the current object in a constructor or methotd
+ * ithu voda value tha ithu nu solldrathukuy this  keyword use pandrom
+
+
+constructor overloading
+--------------------------
+   -> it is multiple  constructor  over load like three values it will go to among state ment
+
+
+
+public class Student {
+    int rno;
+    String name;
+    float marks;
+    Student() {
+        this.rno = 6;
+        this.name ="ARAVIND";
+        this.marks = 90.00f;
+    }
+
+    Student( Student other) {
+        this.rno = other.rno;
+        this.name =other.name;
+        this.marks = other.marks;
+    }
+
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+}
+
+calling A constructor from another constructor
+------------------------------------------------
+public class Student {
+    int rno;
+    String name;
+    float marks;
+    Student() {
+//this is how you will call a constructor from another constructor
+
+        this(12,"defauly",100.00f);
+    }
+
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+}
+public class Main {
+    public static void main(String[] args)
+    {
+        Student s1=new Student();
+
+        System.out.println(s1.rno);          // 12
+        System.out.println(s1.name);        //defauly
+        System.out.println(s1.marks);       //100.0
+    }
+}
+
+
+-> objects are stored in heap when we use new keyword
+ a=10
+
+-> in python there is no primitive
+
+-> it can be use for increase speed in java.
+
+
+copying one reference variable to another reference variable
+----------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args)
+    {
+        Student s1=new Student();
+
+        System.out.println(s1.rno);          // 6
+        System.out.println(s1.name);        // ARAVIND
+        System.out.println(s1.marks);       //90.00
+
+	Student s2=s1;
+        s1.name="something something";   // if we change s1.name it will also change s2.name because both are pointing to same object.
+
+        System.out.println(s2.name); // something something
+
+    }
+}
+
+
+
+
+WRAPPER CLASS :
+--------------
+public class Main {
+    public static void main(String[] args) {
+        int a=5;
+        int b=10;
+        swap(a,b);
+        System.out.println(a);//5
+
+        System.out.println(b);//10
+
+    }
+   public static void swap(int a,int b)
+    {
+        int temp=a;
+        a=b;
+        b=temp;
+        //it will swap only inside the method
+    }
+}
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Integer a= new Integer(5);      // now 5 and 10 be the object. it is non primitive data type.
+        Integer b=10;
+        swap(a,b);
+        System.out.println(a);//5
+
+        System.out.println(b);//10   /// not swap because integer class is a final.
+
+    }
+   public static void swap(Integer a, Integer b)
+    {
+        Integer temp=a;
+        a=b;
+        b=temp;
+
+        //it will swap only inside the method
+// it will not changing the original  value.
+    }
+}
+------------------------------------------------------------------------------------------------------------------
+
+
+FINAL
+-------
+
+ ->  it is a keyword. once defined it will cannot be modified.
+->   it will be always must initialized while declaring.
+->   it will be  only for primitive data type.
+
+eg
+   final int a=10;
+	a=3//error
+   it will must be not modified . if you try to modify it will give error.
+
+
+-> it cannot change value when the data type is primitive.
+-> if you can change datatype when the data is non-primitive
+
+OBJECT IS FINAL
+-----------------
+
+       final  Student s1=new Student(1,"ragu",88.33f);
+
+       System.out.println(s1.name); //ragu
+       s1.name="aravi";
+       System.out.println(s1.name);//aravi
+
+        // you can change the value
+
+
+        // when a non primitive is final you cannot reassign it.
+
+        s1=new Student(21,"rasjugu",85.33f);//error
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+GARBAGE COLLECTION
+-------------------
+
+ a= 5;
+ a=10;
+
+-> 5 will be automatically removed by garbage collection
+
+-> java will remove automatically . in other language we can remove manually.
+
+we cannot destroy garbage value manually but we can perform some specific action manually by using finalize() method.
+
+public class Student {
+    int rno;
+    String name;
+    float mark;
+
+
+    Student() {
+        this (13, "something something ",88.3f);
+    }
+
+   @Override
+    protected void finalize() throws Throwable {
+        System.out.println("object destroyed");
+   }
+
+
+}
+public class Main {
+    public static void main(String [] args) {
+         Student  obj;
+         for(int i=0;i<900000;i++)// put lot of load
+         {
+             obj=new Student();  // evertime it will be create a new object
+         }
+
+
+    }
+}
+
+
+
+array of objects
+-----------------
+import java.util.*;
+public class Main{
+
+
+    public static void main(String args[])
+    {
+    int n;
+    Scanner s=new Scanner(System.in);
+    System.out.print("enter the sixe of obj : ");
+    n=s.nextInt();
+        Student c[] =new Student[n];
+    for(int i=0;i<n;i++)
+    {
+ int a=0;
+ int r=0;
+ String name=null;
+        System.out.printf("enter the age  :");
+         a= s.nextInt();
+        System.out.printf("enter the rno  :");
+        r=s.nextInt();
+        System.out.printf("enter the name  :");
+
+         name = s.nextLine();
+        s.nextLine();
+        c[i]=new Student(r,name,a);
+        System.out.println("--------");
+
+    }
+    for(int i=0;i<n;i++)
+    {
+        System.out.println("rno= "+c[i].rno);
+        System.out.println("name= "+c[i].name);
+        System.out.println("age= "+c[i].age);
+        System.out.println("---------------------------------------");
+
+    }
+    }
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  Student s=new student();
+  System.out.println(s);	//it will print some hash value eg Student@65ab7765   it will be done by tostring method  and override learn in fiture

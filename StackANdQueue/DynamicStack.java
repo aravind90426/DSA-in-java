@@ -20,5 +20,5 @@ public class DynamicStack extends CustomStack {
             data=temp;
         }
         return  super.push(val);
-    }
+    }9
 }

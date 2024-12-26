@@ -1,0 +1,252 @@
+TREE
+-----
+
+
+->why  we use tree?
+
+     -> every operation in or worst case should be  O(log n) time complexity;
+
+     -> ordered storage   -> left side will be small
+
+     -> cost efficient
+
+
+
+in unbalanced binary tree gives  O(N) time complexity  it will donce with self balance BT
+_---------------------------------------
+
+
+
+Where is it used?
+
+1) file system
+2) Databases
+3) Algorithm / Networking
+4) Maths
+5) DTS -> ml
+6) compression of files(hauffman coding)
+7)Future ds
+
+
+
+TERMINOLOGIES
+--------------
+
+
+in Linked List
+
+   Node:
+     int value
+     Node next
+
+
+in Tree
+
+   Node:
+      int value
+      Node left
+      Node right
+
+
+
+properties
+-----------
+
+1) size  = total number of Nodes
+2)   child and parent
+3)   siblings
+4)   Edge
+5)    Leaf Node
+6)    Height (max number of edges from current to leaf)
+7)    Level
+            height of root - height of node
+
+             root level =0
+
+8) Ancestor and desendant
+
+  from path A to B
+
+ A is ancestor
+ B is desendant
+
+
+ 9) degree
+
+
+
+Types of Binary Tree
+
+1)  Complete Binary Tree
+
+      All level should be filled
+but last level can fill left to right
+
+2)Full binary tree or Strict BT
+
+    child must be 0 or 2
+
+Use case:
+_-------
+
+->compression
+-> Segment BT
+
+3)  Perfect Binary Tree
+
+          All levels are filled
+
+4) Height balanced   -> avg height O(log N)
+
+5)Skeved BT
+
+       every node has only one child
+
+      Like (LL)
+
+6)Ordered Binary tree
+
+             every node has some properities
+
+eg) BST (left node must be small)
+_-------------------------------------------------------------------------------------------
+
+
+properties that can be help in some questions
+
+
+1) for Perfect BT, height = h
+
+          Total nodes = 2 ^ (h+1) -1
+
+  2^0 + 2^1 + 2^2 +........2^n = GP
+
+                  2^(n+1)-1
+
+
+
+2)  leaf nodes in perfect BT = 2^h
+
+
+3) N = no of leaves
+
+    log N + 1    levels at least
+
+N n0des = log(N+1) min levels
+
+
+4) Strict BT ,  N-> Leaf Nodes
+
+N-1 = internal Nodes
+
+No of leaf nodes = No of internal Nodes +1
+
+
+5) Strict BT
+
+
+No of leaf nodes = 1+ no of internal nodes with 2 children (not including root)
+
+_____________________________________________________________________________________________________________________________________________
+
+
+
+
+Implementation
+-------------
+
+
+two ways
+
+1=>   Linked representation
+
+2=>   Sequential -> using array
+               eg (heap) complete Binary Tree
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+1) Binary tree
+
+
+		normally inserted (line by line) and display
+
+2)Binary Search Tree
+
+
+  left side will smaller element and right will be larger element then
+
+some methods
+
+   ->    HegightofNode
+   ->   insert
+   ->    insert with array
+   ->   insert with sorteted array
+   ->    isBalanced
+   ->    display
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+IMPORTANT    tree traversal
+
+
+
+1) PreOrder
+
+    Node -> Left -> Right
+
+    * USECASE
+
+             -> Evaluate Math expression
+
+             -> Making a copy
+
+
+
+2) INORDER
+
+    left-> Node -> Right
+
+      *  USECASE
+
+		in BST , visit Node  in sorted Manner
+
+
+3) PostOrder
+
+    Left-> Right -> Node
+
+
+     * USECASE
+
+          -> deleting Binary tree
+
+	  -> Bottom - UP Calculation
+
+
+---------------------------------------------------------------------------------------------
+
+
+VERY VERY IMPORTANT
+
+    BFS AND DFS OR  BFT AND DFT
+
+
+               			    |
+breadth ----->           depth =>   |
+                             	    V
+
+
+
+
+
+
+
+
+
+
+

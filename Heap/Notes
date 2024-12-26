@@ -1,0 +1,52 @@
+In Java, a heap is a type of binary tree-based data structure that satisfies the heap property:
+
+ -> Max-Heap Property: Every parent node has a value greater than or equal to the values of its children.
+ -> Min-Heap Property: Every parent node has a value less than or equal to the values of its children.
+
+
+  Heaps are typically implemented using arrays and are used in various applications, such as:
+
+    * Priority Queues: Where elements with higher priorities are processed first.
+    * Heap Sort: A sorting algorithm that leverages the heap structure.
+    * Graph Algorithms: Such as Dijkstra’s shortest path.
+
+  Time complexity
+
+
+
+        Summary Table of Time Complexities
+
+        Operation	Time Complexity
+        Insert	            O(log n)
+        Delete/Extract	    O(log n)
+        Peek (Max/Min)	    O(1)
+        Heapify (Single)	O(log n)   Rearrange an array into a valid heap structure // heapify up and Heapify down
+        Build a Heap	    O(n)
+        Heap Sort	        O(n log n)
+
+
+   eg
+
+
+        16 14 10 8 4 9 7  6 4
+
+
+                    16
+                14      10
+             8     4   9   7
+           2   4
+
+         properties
+
+       1)  complete binary tree
+
+       2) EVery node value >= all of the childrens
+
+     formula
+     --------
+       root = 1;
+       parent = index/2;
+       left = index * 2
+       right = index * 2 +1;
+
+
