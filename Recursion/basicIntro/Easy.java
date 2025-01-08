@@ -1,8 +1,8 @@
 package Recursion.basicIntro;
 
-public class Easy {
+class Easy {
     public static void main(String[] args) {
-            System.out.println(steps(41));
+            //System.out.println(steps(41));
     }
 
     //1  print 0-N;
@@ -72,7 +72,7 @@ public class Easy {
 
 
     // 6
-    public  static  int steps(int n)
+    public    int steps(int n)
     {
         if(n==0)
             return  0;

@@ -1,3 +1,4 @@
+/*
 package Tree.Codes;
 
 import Tree.Codes.Tree_1.BinaryTree;
@@ -39,3 +40,4 @@ public class Practice {
     }
 
 }
+*/

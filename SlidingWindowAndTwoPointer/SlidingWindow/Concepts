@@ -1,0 +1,142 @@
+
+                 SLIDING WINDOW
+
+            The Sliding Window is an efficient algorithmic approach used to
+solve problems involving contiguous subarrays or subsequences in an array or string.
+
+   -> there is four approches to solve the problems.
+
+ 1)   constant slidibng window.
+
+ 2)   Longest subARray / substring where <conditions>
+
+                                        -> brute
+                                        -> buffer
+                                        -> optimal
+
+  3) No of subarrays where <conditions>
+
+                - > use pattern  2
+
+  4) shortest minimum window
+
+
+
+
+        there is usualy use two pointers
+
+
+       ->   l   - for shrink
+       ->   r    - for grow   (increase length)
+
+
+
+
+    1) st approch   - fixed length sliding window.
+
+      find maximum sum with take only k elements
+
+
+       l=0, r= k-1;
+       for(i=l t0 r)
+       sum+=arr[i];
+
+        while(n<n-1)
+        {
+        sum=sum-arr[i];
+        l++;
+        r++;
+        sum=sum+arr[i];
+        maxsum = max(maxsum,sum);
+        }
+
+  2)nd approch
+
+        Longest subARray / substring where <conditions>   <=k
+
+
+        i) Brute force
+
+    for(int i=0 to n-1)
+    {
+
+        for(j=i -> n-1)
+        {
+                // we can generate all subarray
+
+        }
+
+
+    }
+    [2,5,1,7,8,9] k=14
+
+    brute force way to find maximum sum with take only k elements
+max=0;
+    for(int i=0 to n-1)
+        {
+        sum=0;
+
+            for(j=i -> n-1)
+            {
+                sum+=arr[j];
+                if(sum<=k)
+                        max = Math.max(sum,max);
+                 else
+                    break;
+            }
+
+
+        }
+
+
+      ii)  better aproch                                r- expand
+                                                        l-shrink
+            l=0,r=0
+            sum=0; max=0;
+
+            while(r<=0)
+            {
+                sum+=arr[r];
+                while(sum>k)
+                {
+                    sum-=arr[l];
+                    l++;
+                }
+                if(sum<=k)
+                 max = Math.max(sum,max);
+                 r++;
+            }
+
+
+            TC = O(N+N) SC-> O(1)
+
+        iii) optimal
+
+                 l=0,r=0
+                            sum=0; max=0;
+
+                            while(r<=0)
+                            {
+                                sum+=arr[r];
+                                if(sum>k)
+                                {
+                                    sum-=arr[l];
+                                    l++;
+                                }
+                                if(sum<=k)
+                                 max = Math.max(sum,max);
+                                 r++;
+                            }
+
+
+                            TC = O(N) SC-> O(1)
+
+
+
+3)No of subarrays  with sum=k         compound sliding window  -----   using pattern 2
+
+ (No of subarray where sum<=k )   -  (No of subarray where sum<k)
+
+
+
+ 4) Shortesst minimum window

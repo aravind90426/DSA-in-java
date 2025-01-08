@@ -1,0 +1,2011 @@
+java oops
+
+OBJECT ORIENTED PROGRAMMING LANGUAGE
+
+
+CLASS
+    class is a named group of properties and function.
+
+  ->  class is an template of object
+
+  ->  simply known as
+
+     class is a logical construct
+
+
+OBJECT
+
+  -> object is an instead of class
+(its follow the class template and creates an object)
+
+  -> simply known as physical entity  // occupies space in memory.
+
+
+->  objects are stored in heap memory.
+->   reference variable are stored in stack memory.( object ku vekka pora name)
+
+eg
+
+public class Student{
+    int rno;
+    String name;
+    float marks;
+}
+public class Main {
+    public static void main(String[] args)
+    {
+        // creating object for that class
+
+        Student s1=new Student();
+
+        // new :: dynamically allocate memory and returns a reference variable to it
+
+
+                                    // default value
+        System.out.println(s1.rno);   //0
+        System.out.println(s1.name);  // null
+        System.out.println(s1.marks); // 0.0
+        //  boolean                   // false
+    }
+
+}
+
+
+
+
+	student s1      =      new student():
+	__________              _____________
+
+       compile time             | run time
+				|
+				| memory will be allocate at the runtime
+
+
+assignig values
+----------------
+
+  Student s1=new Student();
+
+        s1.name="arun";
+        s1.rno=6;
+        s1.marks=90.0f;
+
+        System.out.println(s1.rno);          // arun
+        System.out.println(s1.name);        // 6
+        System.out.println(s1.marks);       //90.0
+
+
+
+
+
+you can also create multiple objects
+	Student s1=new Student();
+	Student s2=new Student();
+	Student s3=new Student();
+	Student s4=new Student();
+
+
+s1,s2.... are stored in stack memory
+they are called reference variable
+
+name,rno,marks  are stored in heap memory
+they are called object variables
+
+
+
+
+CONSTRUCTOR
+-----------
+ * construcor is a special function that runs which you create an object and
+it allocates some variable
+ *  which is used to initialoze  the object.
+ *  class name and method name must be same.
+ *  it doesnot return any thing.
+
+	public class Student {
+    int rno;
+    String name;
+    float marks;
+    Student() {
+        this.rno = 6;
+        this.name ="ARAVIND";
+        this.marks = 90.00f;
+    }
+
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+
+}
+	public class Main {
+    public static void main(String[] args)
+    {
+
+        Student s1=new Student();
+
+
+
+        System.out.println(s1.rno);       	   // 6
+        System.out.println(s1.name);     	   // ARAVIND
+        System.out.println(s1.marks);    	   //90.0
+
+        Student s2=new Student(7,"arun",60);
+        System.out.println(s2.rno);        	  // 7
+        System.out.println(s2.name);     	   // arun
+        System.out.println(s2.marks);     	  //60.0
+
+
+
+
+    }
+
+}
+
+
+after getting value from user and change it
+
+in main method
+_______________
+
+
+    void  setName(String name)
+    {
+        this.name=name;
+    }
+
+in Studebt class
+________________
+
+ 	Student s1=new Student();
+
+        System.out.println(s1.rno);          // 6
+        System.out.println(s1.name);        // ARAVIND
+        System.out.println(s1.marks);       //90.0
+
+        Student s2=new Student(7 ,"arun" ,90);
+
+        System.out.println(s2.rno);          // 6
+        System.out.println(s2.name);        //
+        System.out.println(s2.marks);       //90.0
+
+        s2.setName("ragu");
+        System.out.println(s2.name);    //ragu
+
+
+copying one object data to another object
+-----------------------------------------
+
+public class Student {
+    int rno;
+    String name;
+    float marks;
+    Student() {
+        this.rno = 6;
+        this.name ="ARAVIND";
+        this.marks = 90.00f;
+    }
+
+    Student( Student other) {
+        this.rno = other.rno;
+        this.name =other.name;
+        this.marks = other.marks;
+    }
+
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+
+}
+
+
+public class Main {
+    public static void main(String[] args)
+    {
+        Student s1=new Student();
+
+        System.out.println(s1.rno);          // 6
+        System.out.println(s1.name);        // ARAVIND
+        System.out.println(s1.marks);       //90.0
+        Student s2=new Student(7 ,"arun" ,90);
+
+        System.out.println(s2.rno);          // 6
+        System.out.println(s2.name);        //arum
+        System.out.println(s2.marks);       //90.0
+
+       Student random = new Student(s2);
+        System.out.println(random.rno);          // 6
+        System.out.println(random.name);        //arun
+        System.out.println(random.marks);       //90.0
+
+
+
+    }
+
+}
+
+
+this - keyword
+
+ * it will refers to the current object in a constructor or methotd
+ * ithu voda value tha ithu nu solldrathukuy this  keyword use pandrom
+
+
+constructor overloading
+--------------------------
+   -> it is multiple  constructor  over load like three values it will go to among state ment
+
+
+
+public class Student {
+    int rno;
+    String name;
+    float marks;
+    Student() {
+        this.rno = 6;
+        this.name ="ARAVIND";
+        this.marks = 90.00f;
+    }
+
+    Student( Student other) {
+        this.rno = other.rno;
+        this.name =other.name;
+        this.marks = other.marks;
+    }
+
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+}
+
+calling A constructor from another constructor
+------------------------------------------------
+public class Student {
+    int rno;
+    String name;
+    float marks;
+    Student() {
+//this is how you will call a constructor from another constructor
+
+        this(12,"defauly",100.00f);
+    }
+
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+}
+public class Main {
+    public static void main(String[] args)
+    {
+        Student s1=new Student();
+
+        System.out.println(s1.rno);          // 12
+        System.out.println(s1.name);        //defauly
+        System.out.println(s1.marks);       //100.0
+    }
+}
+
+
+-> objects are stored in heap when we use new keyword
+ a=10
+
+-> in python there is no primitive
+
+-> it can be use for increase speed in java.
+
+
+copying one reference variable to another reference variable
+----------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args)
+    {
+        Student s1=new Student();
+
+        System.out.println(s1.rno);          // 6
+        System.out.println(s1.name);        // ARAVIND
+        System.out.println(s1.marks);       //90.00
+
+	Student s2=s1;
+        s1.name="something something";   // if we change s1.name it will also change s2.name because both are pointing to same object.
+
+        System.out.println(s2.name); // something something
+
+    }
+}
+
+
+
+
+WRAPPER CLASS :
+--------------
+public class Main {
+    public static void main(String[] args) {
+        int a=5;
+        int b=10;
+        swap(a,b);
+        System.out.println(a);//5
+
+        System.out.println(b);//10
+
+    }
+   public static void swap(int a,int b)
+    {
+        int temp=a;
+        a=b;
+        b=temp;
+        //it will swap only inside the method
+    }
+}
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Integer a= new Integer(5);      // now 5 and 10 be the object. it is non primitive data type.
+        Integer b=10;
+        swap(a,b);
+        System.out.println(a);//5
+
+        System.out.println(b);//10   /// not swap because integer class is a final.
+
+    }
+   public static void swap(Integer a, Integer b)
+    {
+        Integer temp=a;
+        a=b;
+        b=temp;
+
+        //it will swap only inside the method
+// it will not changing the original  value.
+    }
+}
+------------------------------------------------------------------------------------------------------------------
+
+
+FINAL
+-------
+
+ ->  it is a keyword. once defined it will cannot be modified.
+->   it will be always must initialized while declaring.
+->   it will be  only for primitive data type.
+
+eg
+   final int a=10;
+	a=3//error
+   it will must be not modified . if you try to modify it will give error.
+
+
+-> it cannot change value when the data type is primitive.
+-> if you can change datatype when the data is non-primitive
+
+OBJECT IS FINAL
+-----------------
+
+       final  Student s1=new Student(1,"ragu",88.33f);
+
+       System.out.println(s1.name); //ragu
+       s1.name="aravi";
+       System.out.println(s1.name);//aravi
+
+        // you can change the value
+
+
+        // when a non primitive is final you cannot reassign it.
+
+        s1=new Student(21,"rasjugu",85.33f);//error
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+GARBAGE COLLECTION
+-------------------
+
+ a= 5;
+ a=10;
+
+-> 5 will be automatically removed by garbage collection.
+
+-> java will remove automatically . in other language we can remove manually.
+
+we cannot destroy garbage value manually but we can perform some specific action manually by using finalize() method.
+
+public class Student {
+    int rno;
+    String name;
+    float mark;
+
+
+    Student() {
+        this (13, "something something ",88.3f);
+    }
+
+   @Override
+    protected void finalize() throws Throwable {
+        System.out.println("object destroyed");
+   }
+
+
+}
+public class Main {
+    public static void main(String [] args) {
+         Student  obj;
+         for(int i=0;i<900000;i++)// put lot of load
+         {
+             obj=new Student();  // evertime it will be create a new object
+         }
+
+
+    }
+}
+
+
+
+array of objects
+-----------------
+import java.util.*;
+public class Main{
+
+
+    public static void main(String args[])
+    {
+    int n;
+    Scanner s=new Scanner(System.in);
+    System.out.print("enter the sixe of obj : ");
+    n=s.nextInt();
+        Student c[] =new Student[n];
+    for(int i=0;i<n;i++)
+    {
+ int a=0;
+ int r=0;
+ String name=null;
+        System.out.printf("enter the age  :");
+         a= s.nextInt();
+        System.out.printf("enter the rno  :");
+        r=s.nextInt();
+        System.out.printf("enter the name  :");
+
+         name = s.nextLine();
+        s.nextLine();
+        c[i]=new Student(r,name,a);
+        System.out.println("--------");
+
+    }
+    for(int i=0;i<n;i++)
+    {
+        System.out.println("rno= "+c[i].rno);
+        System.out.println("name= "+c[i].name);
+        System.out.println("age= "+c[i].age);
+        System.out.println("---------------------------------------");
+
+    }
+    }
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  Student s=new student();
+  System.out.println(s);	//it will print some hash value eg Student@65ab7765   it will be done by tostring method  and override learn in fiture
+
+  PACKAGES
+-------------
+
+-> packages is like a folder . it contains classes and interfaces.
+
+->it is in hierarical manner which means a folder inside another folder
+
+-> it can be two types
+
+   1-pre defined package
+                eg util package, time package etc
+
+   2-User defined package
+
+-> package keyword
+-----------------------
+ which is used to move the class to package and the class belong to its package.
+
+import keyword
+-----------------
+
+ it can be used to import another package classes in now using class.
+
+
+
+package  Apack;
+public class Cl1 {
+    public void prin()
+    {
+        System.out.println("iam in package Apack");
+    }
+
+}
+
+
+package  Bpack;
+
+import Apack.Cl1;  //  else Apack.*  we can access all the class in Apack.
+
+public class Bcl1 {
+    public static void main(String[] args) {
+        Cl1  s = new Cl1();
+        s.prin();
+    }
+}
+
+
+-> in the Bpack  we can access the Apack class c1
+-> 1st we can create object for the class cl1 and compiler will ask to import.
+
+
+
+
+---------------------------------------------------------------------------------------
+
+STATIC
+-------
+-> when a member is declared static . it can be accessed before any of the object of the class is been created and with out referring to any object
+you can be accesed.
+-> it does not depended on object . no object is been created you can still use it.
+-> it can be accessed by class name .
+
+
+public class Student{
+
+    int rno;
+    String name;
+    int age;
+    static long population;
+    public Student(int rno, String name, int age)
+    {
+        this.rno=rno;
+        this.name=name;
+        this.age=age;
+        Student.population +=1;        // static variable can be accessed by  class name
+    }
+
+    }
+public class Main {
+    public static void main(String[] args) {
+       Student s = new Student(1,"arav",19);
+        Student s2 = new Student(2,"pavi",21);
+        Student s3 = new Student(3,"ragu",19);
+        System.out.println(Student.population);  // 3    population is common to all . so it does not depends on object  it can be defined and accessed by class name
+
+    }
+}
+
+
+Non static method inside static
+----------------------------------
+
+->  inside static method it can be acess only static method
+->  its doesnot access non static method
+->  Static method can directly access by class name
+
+public class Main {
+    public  static void main(String[] args) {
+        greeting();    // we cannot access  non static method inside static method
+    }
+                      // we know something which is non static belongs to an object
+    public  void greeting()
+    {
+        System.out.println("hai");
+    }
+}
+
+
+ ->  if you want access not static method in static create object for that class and access it.
+
+public class Main {
+    public  static void main(String[] args) {
+        Main m = new Main();
+        m.greeting();
+    }
+    public   void greeting()
+    {
+        System.out.println("hai");
+    }
+}
+
+
+static method inside non static
+
+-------------------------------
+
+-> you can access static method inside non static
+
+public class Main {
+    public  static void main(String[] args) {
+        Main m = new Main();
+        m.greeting();    //iam static nex
+    }
+    public   void greeting()
+    {
+        nex();
+    }
+    public static void nex()
+    {
+        System.out.println("iam static nex");
+    }
+}
+
+
+
+static method inside static
+-----------------------------
+public class Main {
+    public  static void main(String[] args) {
+       nex();   // or  Main.nex();
+    }
+    public static void nex()
+    {
+        System.out.println("iam static nex");
+    }
+}
+
+
+
+-> we cannot use this keyword inside static method
+
+
+
+Initialization  of static variables
+-------------------------------------
+
+ public class Main {
+
+    static int a = 10;
+    static int b;
+
+    static {   // it will run once , when the first obj is creat i.e. when the class is loaded for the first time
+        System.out.println("hai");
+        b=a*5;
+
+    }
+
+    public static void main(String[] args) {
+        Main m = new Main();
+     System.out.println(Main.a+"   "+ Main.b);
+     b=b+2;
+     System.out.println(Main.a+"   "+ Main.b);
+
+
+    }
+}
+
+output
+ _____________________
+|                     |
+|   hai               |
+|   10   50           |
+|   10   52           |
+|                     |
+|_____________________|
+
+
+
+inner class
+--------------
+
+-> outer class must be not static . inner class only static.
+
+
+public class Ilas {
+    static class Test{                   // it will not depended on outer classs if it wil be not static it will depends on outer class
+         int age;
+
+         public Test(int i) {
+             this.age = i;
+         }
+
+
+    }
+    public static void main(String[] args) {
+       Test a= new Test(8);       // if Test class is not static  it will give error
+       Test b = new Test(9);
+    }
+}
+
+
+
+class Test{
+    static String name;
+
+    public Test(String name) {
+        Test.name = name;
+    }
+
+
+}
+
+public class Bcl1 {
+
+    public static void main(String[] args) {
+       Test a= new Test( " RAVi");
+       Test b = new Test("ARun");
+       System.out.println(a.name);   // ARun
+       System.out.println(b.name);   // ARun
+
+
+    }
+}
+
+public class outerclassa {
+   static class Test{    // it doesn not depends on outer class
+         String name;
+
+        public Test(String name) {
+            this.name = name;
+        }
+   }
+   public static void main(String[] args) {
+       Test a= new Test( " RAVi");
+       Test b = new Test("ARun");
+       System.out.println(a.name);  // RAVi
+       System.out.println(b.name);  // ARun
+
+
+    }
+}
+
+
+---------------------------------------------------------------------
+
+SINGLETON CLASS
+-----------------
+
+-> it is a class which can  allow only one objet to create that is known as singleton class.
+
+-> it constructoir is must private   // which helps to user cannot be create object.
+
+
+public class Student{
+
+   private Student(){
+      System.out.println('h');
+   }
+   private static Student instance;
+  public static Student getInstance()
+  {
+      if( instance== null)
+      {
+          instance = new Student();
+      }
+      return  instance;
+  }
+    }
+
+
+
+
+public class Main {
+
+
+    public static void main(String[] args) {
+
+    //Student s1 = new Student();   // if you create object it will give error because contructor is private
+
+   Student s1 = Student.getInstance();
+   Student s2 = Student.getInstance();
+   Student s3= Student.getInstance();
+
+    // all 3 reference variable(s1,s2,s3 )  are pointing to just one object
+
+        }
+    }
+
+
+
+output
+
+h
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ PRICIPLES OF OOPS
+-----------------------
+
+->there are four important properties in oops
+
+       * inheritance
+       * polymorphism
+       * Encapsulation
+       * Abstraction
+
+Inherirance
+--------------
+
+ -> if there is a class the properties and function are used by the other class
+
+ -> if there is a base class , child class can be used all the properties and functions in the base class and child class have extra properties
+
+   this is known as inheritance.
+
+ -> child class is inheriting properties from the base class. while using extends keyword.
+
+ -> simply known as child class have all the properties in the base class and it have additional properties
+
+
+
+
+package basic;
+
+public class Box {
+    double height;
+    double breadth;
+    double length;
+    Box() {
+        this.length = -1;
+        this.breadth = -1;
+        this.height = -1;
+    }
+    Box(double length ,double breadth, double height)
+    {
+        this.length=length;
+        this.breadth=breadth;
+        this.height=height;
+    }
+
+    Box( double side)
+        {
+            this.length=side;
+            this.breadth=side;
+            this.height=side;
+
+        }
+        Box( Box old )
+        {
+            this.length =old.length;
+            this.height=old.height;
+            this.breadth=old.breadth;
+        }
+
+
+    }
+
+package basic;
+public class Main {
+    public static void main(String[] args) {
+
+        Box b1 = new Box();
+        System.out.println(b1.length +" " + b1.breadth + " "+ b1.height); //-1.0 -1.0 -1.0
+
+        Box b2=new Box(1.5,7,7.9);
+        System.out.println(b2.length +" " + b2.breadth + " "+ b2.height); // 1.5 7.0 7.9
+
+
+        Box b3 = new Box(7);
+        System.out.println(b3.length +" " + b3.breadth + " "+ b3.height); //7.0 7.0 7.0
+
+        Box b4 = new Box(b2);
+        System.out.println(b4.length +" " + b4.breadth + " "+ b4.height); //1.5 7.0 7.9
+
+
+    }
+}
+
+
+
+
+
+package basic;
+
+public class Box {
+    double height;
+    double breadth;
+    double length;
+    Box() {
+        this.length = -1;
+        this.breadth = -1;
+        this.height = -1;
+    }
+    Box(double length ,double breadth, double height)
+    {
+        this.length=length;
+        this.breadth=breadth;
+        this.height=height;
+    }
+
+    Box( double side)
+        {
+            this.length=side;
+            this.breadth=side;
+            this.height=side;
+
+        }
+        Box( Box old )
+        {
+            this.length =old.length;
+            this.height=old.height;
+            this.breadth=old.breadth;
+        }
+
+
+    }
+
+package  basic;
+
+public class Boxweight extends Box {    // it have all  the properties in box class
+    double  weight;
+    Boxweight()
+    {
+        this.weight=-1;
+    }
+
+}
+
+package basic;
+public class Main {
+    public static void main(String[] args) {
+
+        Boxweight b1= new Boxweight();
+        System.out.println(b1.weight + " "+ b1.breadth + " "+ b1.length + " "+ b1.height); //-1.0 -1.0 -1.0 -1.0
+
+    }
+
+}
+
+
+------------------
+
+package  basic;
+
+public class Boxweight extends Box {
+    double  weight;
+    Boxweight()
+    {
+        this.weight=-1;
+    }
+    Boxweight(double length , double breadth , double height,double weight)
+    {
+        super(length, breadth, height);		  //   call  the parent class constructor
+
+                            			 // use to initialize values in parent class
+        this.weight=weight;
+    }
+
+}
+
+package basic;
+public class Main {
+    public static void main(String[] args) {
+
+        Boxweight b1= new Boxweight();
+        System.out.println(b1.weight + " "+ b1.breadth + " "+ b1.length + " "+ b1.height); 		//-1.0 -1.0 -1.0 -1.0
+
+        Boxweight b2= new Boxweight(3.0,4,7,6);
+        System.out.println(b2.weight + " "+ b2.breadth + " "+ b2.length + " "+ b2.height);		//6.0 4.0 3.0 7.0
+    }
+
+}
+
+
+
+private
+
+
+-> if you want dont access the member of parent class it will declare as private.
+-> any thing is private you can acess only that file. you can not access outside.
+
+-> all the  sub class includes like the members of superclsass it will not able tp access that are private
+
+
+public class Box {
+    private double height;
+    private double breadth;
+    private double length;
+    Box() {
+        this.length = -1;
+        this.breadth = -1;
+        this.height = -1;
+    }
+}
+package  basic;
+
+public class Boxweight extends Box {
+    double  weight;
+    Boxweight()
+    {
+        this.weight=-1;
+    }
+    Boxweight(double length , double breadth , double height,double weight)
+    {
+        super(length, breadth, height);     // this will be only initialize box class.
+        this.weight=weight;
+    }
+
+}
+
+package basic;
+public class Main {
+    public static void main(String[] args) {
+
+        Boxweight b1= new Boxweight();
+        System.out.println(b1.weight + " "+ b1.breadth + " "+ b1.length + " "+ b1.height); // it will give error we cannot access private variables
+
+       ;
+    }
+
+}
+
+different type obj creating
+----------------------------
+
+package basic;
+public class Main {
+    public static void main(String[] args) {
+
+        Box b1= new Boxweight(7, 5, 4,3);
+        System.out.println(b1.length);  //you can access this
+
+        System.out.println(b1.weight);// you cannot access the sub class varialabe
+         // you can only access the member of reference variable type
+        // paren class is refers to the child class
+
+
+        //there are many variables in both child and parent class
+        // you are given access to variables that are in the ref type i.e Boxweight for b2
+        // hence you should access the weight variable
+        // this also means, that ones you are trying to access should be initailized
+        // but here, when the obj itself is of type parent class, how will you call the constructor of child class
+        Boxweight b2 = new Box(2,5,3);
+        // you can access the weight  .but we cannot initaialize it so we cannot able to acess it . parent class has no
+        //idea about weight
+
+        // simple la sollanum na reference enna type lairukko antha class members sa mattum tha ccess panna mudiyum
+
+       ;
+    }
+
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------
+super keyword
+--------------
+  -> it will used to call the constructor of  the parent class and initialized values present  in parent class
+   -> it will used to access  parent class variables
+    -> it must be declared at the top of following block.
+
+
+package  basic;
+
+public class Boxweight extends Box {
+    double  weight;
+    Boxweight()
+    {
+        this.weight=-1;
+    }
+    Boxweight(double length , double breadth , double height,double weight)
+    {
+        super(length, breadth, height);             // it will use to  call the parent class constructor
+
+        this.weight=weight;
+        System.out.println(super.weight);
+
+                                              // weight variable in both superr class and sub class it can access the weight variable of super class
+    }
+
+}
+
+
+
+public class Boxweight extends Box {
+    double  weight;
+    Boxweight()
+    {
+        super();                                            // it will call the default constructor
+        this.weight=-1;
+    }
+    Boxweight(double length , double breadth , double height,double weight)
+    {
+
+
+        this.weight=weight;
+        super(length, breadth, height);                               // error because it must be initialized  at the top.
+
+        System.out.println(super.weight);
+    }
+
+ Boxweight(Boxweight other){
+        super(other);
+        this.weight= other.weight;
+    }
+        // bowweight type can access all member of box type
+
+       //there are may variables in both child and parent class
+        // you are given access to variables that are in the ref type i.e Boxweight for b2
+        // hence you should access the weight variable
+        // this also means, that ones you are trying to access should be initailized
+
+}
+
+package basic;
+public class Main {
+    public static void main(String[] args) {
+   Boxweight b1= new Boxweight(1,7,8,9);
+
+  Boxweight b2= new Boxweight(b1);
+  System.out.println(b2.length+" "+b2.breadth+" "+ b2.height+" "+ b2.weight+" "); //1.0 7.0 8.0 9.0
+
+    }
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Types of inheritance
+----------------------
+
+1)   Single inheritance  : one class extends another class
+
+
+ _____________________
+|                     |
+|      BoX            |
+|                     |
+|                     |
+|                     |
+|_____________________|
+
+         |
+         |
+         V
+
+ _____________________
+|                     |
+|                     |
+|                     |
+|   Box weight        |
+|                     |
+|_____________________|
+
+
+
+
+2)   Multi level inheritance   :    one class id derived from the parent class. another class can be derived from the derived class
+
+ _____________________
+|                     |
+|      BoX            |
+|                     |
+|                     |
+|                     |
+|_____________________|
+
+         |
+         |
+         V
+
+ _____________________
+|                     |
+|                     |
+|                     |            //it will accesse all the mrember in box
+|   Box weight        |
+|                     |
+|_____________________|
+
+         |
+         |
+         V
+
+ _____________________
+|                     |
+|                     |
+|                     |
+|   Box price         |       // it will accessed all the member in box weight and box
+|                     |
+|_____________________|
+
+
+
+package basic;
+
+public class Box {
+    double height;
+     double breadth;
+      double length;
+     Box() {
+        this.length = -1;
+        this.breadth = -1;
+        this.height = -1;
+    }
+    Box(double length ,double breadth, double height)
+    {
+        this.length=length;
+        this.breadth=breadth;
+        this.height=height;
+    }
+
+    Box( double side)
+        {
+            this.length=side;
+            this.breadth=side;
+            this.height=side;
+
+        }
+        Box( Box old )
+        {
+            this.length =old.length;
+            this.height=old.height;
+            this.breadth=old.breadth;
+        }
+
+
+    }
+
+
+package  basic;
+
+public class Boxweight extends Box {
+    double  weight;
+    Boxweight()
+    {
+        super();
+        this.weight=-1;
+    }
+    Boxweight(double length , double breadth , double height,double weight) {
+        super(length, breadth, height);
+
+        this.weight = weight;
+    }
+    Boxweight(Boxweight other){
+        super(other);
+        this.weight= other.weight;
+    }
+
+
+}
+
+
+package basic;
+
+public class Boxprice extends Boxweight {
+    double price;
+    Boxprice()
+    {
+        super();
+        this.price=-1;
+    }
+    Boxprice(double length, double breadth, double height, double weight, double price)
+    {
+        super(length, breadth, height, weight);
+        this.price=price;
+    }
+    Boxprice(Boxprice other)
+    {
+        super(other);
+        this.price=other.price;
+    }
+
+}
+
+
+package basic;
+public class Main {
+    public static void main(String[] args) {
+        Boxprice b = new Boxprice();                //-1.0 -1.0 -1.0 -1.0 -1.0
+        System.out.println(b.length+" "+ b.breadth+" "+ b.height+" "+ b.weight+" "+ b.price); //1.0 2.0 4.0 5.0 7.0
+
+        Boxprice b1 = new Boxprice(1,2,4,5,7);
+        System.out.println(b1.length+" "+ b1.breadth+" "+ b1.height+" "+ b1.weight+" "+ b1.price); //1.0 2.0 4.0 5.0 7.0
+    }
+
+}
+
+
+3) Multiple Inheritance   :  one class is extending more then one class
+
+
+ _____________________                      _______________________
+|                     |                    |                       |
+|                     |                    |                       |
+|         A           |                    |            B          |
+|                     |                    |                       |
+|        n=5          |                    |         n=10          |
+|_____________________|                    |_______________________|
+         |                                             |
+         |_____________________________________________|
+                              |
+                              |
+                              V
+                       ______________________
+                      |                     |
+                      |                     |
+                      |          C          |
+                      |                     |
+                      |                     |
+                      |_____________________|
+
+
+
+ C  obj = new C();
+ obj.n  =?  //
+
+             It will not allowed in java
+
+
+             it will do this in interface see later
+
+
+
+
+
+
+4) Hierarical Inheritance:   One class can be inherited by many class
+
+
+
+                       _____________________
+                      |                     |
+                      |                     |
+                      |         A           |
+                      |                     |
+                      |                     |
+                      |_____________________|
+                               |
+                               |
+          ________________________________________
+         |                                        |
+         |                                        |
+         V                                        V
+
+ _____________________                      _______________________
+|                     |                    |                       |
+|                     |                    |                       |
+|                     |                    |                       |
+|      B              |                    |           C           |
+|                     |                    |                       |
+|_____________________|                    |_______________________|
+
+
+
+example
+
+package basic.polymorphism;
+
+public class Shape{
+     void area(){
+         System.out.println("iam in shape");
+     }
+}
+
+
+package basic.polymorphism;
+
+public class Rectancle extends Shape{
+    void area()
+    {
+        System.out.println("iam in rectancle");
+    }
+}
+
+package basic.polymorphism;
+
+public class Square extends Shape {
+    void area(){
+        System.out.println("iam in square");
+    }
+}
+
+
+package basic.polymorphism;
+
+public class Traiangle  extends  Shape{
+    void area()
+    {
+        System.out.println("iam in traingle");
+    }
+}
+
+package basic.polymorphism;
+
+public class Main {
+    public static void main(String[] args) {
+        Rectancle rectancle = new Rectancle();
+        Square square= new Square();
+
+        Traiangle traiangle= new Traiangle();
+        rectancle.area();      //iam in rectancle
+        square.area();         //iam in square
+        traiangle.area();      //iam in traingle
+
+    }
+}
+
+
+
+
+
+5) Hybrid inheritance     :  consisting of single and multiple inheritance  .
+
+                              it will not support in jave check in interface
+
+
+
+
+                       _____________________
+                      |                     |
+                      |                     |
+                      |         A           |
+                      |                     |
+                      |                     |
+                      |_____________________|
+                               |
+                               |
+          ________________________________________
+         |                                        |
+         |                                        |
+         V                                        V
+
+ _____________________                      _______________________
+|                     |                    |                       |
+|                     |                    |                       |
+|                     |                    |                       |
+|      B              |                    |           C           |
+|                     |                    |                       |
+|_____________________|                    |_______________________|
+
+         |                                             |
+         |_____________________________________________|
+                              |
+                              |
+                              V
+                       ______________________
+                      |                     |
+                      |                     |
+                      |          D          |
+                      |                     |
+                      |                     |
+                      |_____________________|
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+POlYMORPHISM
+-----------
+
+       poly       - many
+       morphism   - way tp reprent
+
+polymorphism means many way to represent .
+
+
+package basic.polymorphism;
+
+public class Shape{
+     void area(){
+         System.out.println("iam in shape");
+     }
+}
+
+
+package basic.polymorphism;
+
+public class Rectancle extends Shape{
+    void area()
+    {
+        System.out.println("iam in rectancle");
+    }
+}
+
+package basic.polymorphism;
+
+public class Square extends Shape {
+    void area(){
+        System.out.println("iam in square");
+    }
+}
+
+
+package basic.polymorphism;
+
+public class Traiangle  extends  Shape{
+    void area()
+    {
+        System.out.println("iam in traingle");
+    }
+}
+
+package basic.polymorphism;
+
+public class Main {
+    public static void main(String[] args) {
+        Rectancle rectancle = new Rectancle();
+        Square square= new Square();
+	 Traiangle traiangle= new Traiangle();
+
+        rectancle.area();      //iam in rectancle                 //  refresting the same thing in multiple ways is called polymorphism
+        square.area();         //iam in square
+        traiangle.area();      //iam in traingle
+
+    }
+}
+
+_______________________________________________________
+
+package basic.polymorphism;
+
+public class Main {
+    public static void main(String[] args) {
+        Rectancle rectancle = new Rectancle();
+        Square square= new Square();
+         Shape traiangle= new Traiangle();  // it has access to object
+
+        traiangle.area();// output:  iam in triangle
+
+    }
+}
+
+
+  Types of Polymorphism
+
+  1)    Compile time / Static polymorphism
+
+               this is achieve by method overloading
+                                  ------------------
+                                       |
+                                       V
+                                     same name but arguments , return type, ordering can be different.
+         eg)   multiple constructor
+
+                 A a = new A();
+                 A a = new A(2,3);
+
+ it will be know which method can be run in compiletime so it is known as compile time polymorphism / static polymorphism
+
+
+example for overloading
+package basic.polymorphism;
+public class Main {
+
+    double sum(double a , double b){
+        return a+b;
+
+    }
+   int sum(int a , int b)
+    {
+        return a +b;
+    }
+    int sum(int a, int b , int c)
+    {
+        return a+b+c;
+    }
+
+    public static void main(String[] args) {
+        Main m=new Main();
+      System.out.println(  m.sum(1.2,2.3));
+        System.out.println( m.sum(1,2,3));
+
+ which  will be know which method can be run in compiletime so it is known as compile time polymorphism / static polymorphism
+
+    }
+}
+
+
+2)  Runtime / Dynamic polymorphism
+
+         achieve by method overriding
+                           ----------
+
+                              that means same method that can be in child class and parent class
+
+ OVERRIDING WORKS
+[
+        Parent  obj = new Child();
+
+        here, which method is called depends on child() class  . this is called upcasting
+                                                                               -------
+]
+
+
+
+
+
+
+public class Shape{
+     void area(){
+         System.out.println("iam in shape");
+     }
+}
+
+
+
+public class Square extends Shape {
+
+    // this will run when  obj of square  is created
+    // hence it is overriding the parent method
+
+   @Override                  // this is called annotation // it will check the method will be override or not
+    void area(){
+        System.out.println("iam in square");
+    }
+}
+
+package basic.polymorphism;
+public class Main {
+
+    public static void main(String[] args) {
+      Square s= new Square();
+      s.area();
+      Shape s2 = new Square();     // all the member in the shapes it will be accessed  it does not depend on the object type
+      s2.area();
+
+    }
+}
+
+-> if area  will not in the shape class it will be  give error  when you  create  Shape s2 = new Square();    it will call   the type of the object class
+output
+iam in square
+iam in square
+
+
+if the type is parentclass and the child is subclass
+
+if method will be call that depends on child class
+
+
+
+ OVERRIDING WORKS
+[
+        Parent  obj = new Child();
+
+        here, which method is called depends on child() class  . this is called upcasting
+                                                                               -------
+]
+
+
+
+How java determines this ?               DYNAMIC  METHOD DISMATCH
+
+
+
+
+package basic.polymorphism;
+
+public class Traiangle
+{
+    @Override
+   public String  toString()
+    {
+        return "iam in traingle";
+    }
+
+
+}
+package basic.polymorphism;
+public class Main {
+
+    public static void main(String[] args) {
+      Traiangle t = new Traiangle();
+      System.out.println(t);                //i will print object name it will print inside the tosring.
+
+        }
+    }
+
+
+final
+--------
+
+-> you can also use final to prevent overriding
+
+
+
+public class Shape{
+    final void area(){                             if the method is final it will not be override.
+         System.out.println("iam in shape");
+     }
+}
+public class Square extends Shape {
+   @Override                                     it will give error  because area method is fianl in the parent class
+    void area(){
+        System.out.println("iam in square");
+    }
+}
+Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than
+compile time. Dynamic method dispatch is important because this is how Java implements run-time polymorphism.
+Let’s begin by restating an important principle: a superclass reference variable can refer to a subclass object.
+When an overridden method is called through a superclass reference, Java determines which version of that method to
+execute based upon the type of the object being referred to at the time the call occurs. Thus, this determination is
+made at run time.
+In other words, it is the type of the object being referred to (not the type of the reference variable)
+that determines which version of an overridden method will be executed.
+
+If B extends A then you can override a method in A through B with changing the return type of method to B
+
+
+interview lka ketangana example
+
+Start with the definition:
+	"Dynamic method dispatch is a concept in Java where the method that gets called is determined at runtime, not at compile time.
+	This happens when a subclass overrides a method in the superclass."
+
+Use simple words: "It helps Java decide which version of a method to call depending on the actual object type, not just the reference type."
+
+Give a simple example: "For example, if you have a reference of type Animal, but the actual object is a Dog, the Dog's method will be called even though the reference is Animal."
+
+Link it to real-life: "Think of it like calling a generic 'start' button. If the button is connected to a car, the car will start. If it’s connected to a bike, the bike will start, even though the button is the same."
+_____________________________________________________________________________________________________________________________________________________
+
+can we override static method?
+-------------------------------
+ -> overriding is depends on object.
+ -> static does not depends on object.
+ -> hence static method cannot be override.
+
+________________________________________________________________________________________________________________________________________
+
+Encapsulation
+---------------
+
+->  wrapping up the implementaion of the data and method in a class.(focus on internal working)(containing information)
+getter setter methods.
+
+
+data hiding - varaibles should be always private
+encapsulation is the sub process of data hiding
+Abstraction
+-----------
+
+-> hidding neccesary details& shaing variable information.    (car) (focus onthe external stuff)
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+ACCES MODIFIER
+-------------
+
+public -  it  can be access any where
+private - it can be access only in that class
+Default - it can be access only in that package
+
+
+
+   public
+----------
+
+->  Class
+->  Package
+->    Subclass ( same pkg)   - (child class)
+->   Subclass (diff pkg)
+-> World (diff pkg & Not subclass
+
+			Class        Package     Subclass ( same pkg)    Subclass (diff pkg)        World (diff pkg & Not subclass)
+
+
+public			+		+ 		+			+				+
+
+
+protected		+		+		+			+
+
+
+Default 		+		+		+
+
+
+private			+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+protected allows access within the same package or via inheritance (even if the subclass is in a different package).
+If the subclass is not public, it can still access protected members, but it won't be accessible from outside the package unless made public.
+
+
+
+
+_________________________________________________________________________
+
+
+More about packages
+
+two types ;
+
+ 1) in Built
+ 2)  User Defined  (Aldready covered
+
+
+
+
+
+1) pre Defined  || InBuilt
+
+
+   java is the main folder
+
+below packages or sub folders
+
+
+->  Lang  (important)
+
+   - automatically imported in every java program-  provides fundamental classes that are essential for the Java programming language to function.
+
+   - Object class, Wrapper class,  String , MAth, Thread, Exception
+
+
+-> IO
+
+    input output classes - BufferReader
+
+-> Util
+
+     - data structure
+     - collections
+
+-> applet
+
+      servlwt jsp  (no need to learn)
+
+-> awt
+
+      graphical (no need to learn)
+
+-> net package
+
+      network
+
+
+______________________________________________________________________________________________
+
+
+
+Object class
+
+
+ -> The Object class is the root class of the entire Java class hierarchy
+
+ -> Every class in java extends Object class
+
+The Object class is the root class of the entire Java class hierarchy. Every class in Java implicitly inherits from the Object class, whether you explicitly extend it or not. This is why the Object class provides fundamental methods like:
+
+toString(): Returns a string representation of the object.
+equals(): Compares two objects for equality.
+hashCode(): Provides a hash code representation of the object.
+getClass(): Returns the Class object associated with the object.
+clone(): Creates a copy of the object (though this is a protected method and often requires overriding).
+
+  if u want example ask chatgpt.
+
+
+-------------------------------------------------------------
+  System.out.println(obj.getClass())
+
+object instanceof className   - return true or false
+
+____________________________________________________________________________________________________________________________________________________________________________________
+
+OOPS -5
+
+
+abstract method
+
+  -> abstract method does not contains body.
+
+Abstact class
+
+   -> if class contains any one abstract method it should be declared as abstract in class
+
+  -> in astract class u cannot create object.
+
+  -> u cannot create constructor  for abstract class.  because when object does not create how can  call.
+
+  -> we cannot create abstract static method . why ? think
+
+  -> we create  static method in abstract class.
+
+
+
+
+
+
+eg;
+public abstract class Parent {
+    public abstract void career();
+    public abstract void partner();
+  public static  void testin()
+  {
+      System.out.println("work");
+  }
+   public void method(){
+      System.out.println("work static method");
+   }
+
+}
+
+
+public class Son extends Parent{
+
+    @Override
+    public void career() {
+        System.out.println("Iam become coder");
+    }
+
+    @Override
+    public void partner() {
+        System.out.println("I love div");
+    }
+}
+
+public class Daughter extends  Parent{
+    @Override
+    public void career() {
+        System.out.println("Iam become Doctor");
+    }
+
+    @Override
+    public void partner() {
+        System.out.println("Iam love arav");
+    }
+}
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        //  Parent p = new Parent() ;    // error
+        Son son = new Son();
+        son.career();    // Iam become coder
+        son.partner();   //I love div
+        Daughter d = new Daughter();
+        d.career();           // i become doctor
+        d.partner();        //Iam love arav
+
+
+        Parent.testin();   // work
+        Parent.method();// parent call panna mudiyaathu aana child inherit panni call panlam
+        son.method(); // ippadi
+
+    }
+
+
+}
+
+
+-> final abstract clss not allowed because we cannot able to inherit
+
+
+
+
+
+-> we cannot able to  multipe inherit so we can go Interface
+
+InterFace
+
+-> Interface  basically contains abstract methods.
+
+-> its like abstract class. therir methods are public and abstract
+
+-> thir variables are  static and final we can see below about that
+
+-> interface use implements keyword
+
+-> we can implement multiple inheritance
+
+
+
+
+
+
+
+
+
+

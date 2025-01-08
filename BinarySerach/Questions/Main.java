@@ -1,12 +1,16 @@
 package BinarySerach.Questions;
 
+//import Recursion.basicIntro.Easy;
+
 public class Main {
 
     //https://leetcode.com/problems/first-bad-version/
+   
+
 
     public int firstBadVersion(int n) {
         // return helper(0,n);
-
+       // Easy s = new Easy();
         int left = 1;
         int right = n;
 

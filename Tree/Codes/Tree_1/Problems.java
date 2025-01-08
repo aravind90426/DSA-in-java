@@ -198,6 +198,7 @@ public class Problems {
 
             Node temp =q.poll();
 
+
             if(temp.left!=null)
             {
                 q.offer(temp.left);
