@@ -71,9 +71,6 @@ properties
  B is desendant
 
 
- 9) degree
-
-
 
 Types of Binary Tree
 
@@ -89,8 +86,8 @@ but last level can fill left to right
 Use case:
 _-------
 
-->compression
--> Segment BT
+ -> compression
+ -> Segment BT
 
 3)  Perfect Binary Tree
 
@@ -139,7 +136,7 @@ N n0des = log(N+1) min levels
 
 N-1 = internal Nodes
 
-No of leaf nodes = No of internal Nodes +1
+No of leaf nodes = No of internal Nodes
 
 
 5) Strict BT
@@ -162,6 +159,8 @@ two ways
 
 2=>   Sequential -> using array
                eg (heap) complete Binary Tree
+
+
 
 
 
@@ -243,7 +242,100 @@ breadth ----->           depth =>   |
 
 
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+2)       BALANCING TREE
+
+          For every node the differcence between the left tree height and right tree height should be 0,-1,1;
+
+
+
+Solution //?
+
+        Self balancing Tree
+
+  eg)   AVL Tree
+
+
+        Adelson-Velsky and Landis
+
+
+
+
+
+ALGORITHM
+-------------
+
+1) Insert Normally Node N
+
+2) Start from Node N   and find the node that makes tree unbalanced from Bottom up
+
+3) Use One of the Four Algorithm
+
+
+
+4- Algorithms
+--------------
+
+
+1)  LEFT-LEFT Case
+
+      p
+    c
+  G   t3
+t1  t2
+
+
+
+rotate right p
+
+
+2)Left _ Right case
+
+        P
+    C      t4
+t1      G
+      t2   t3
+
+
+-> left rotate (c)
+
+
+   	      P
+ 	  G
+      C     t3
+   t1   t2
+
+-> Right rotate(p)
+
+
+
+
+3) right - right case
+
+
+   -> rotate  left (p)
+
+
+
+4) right - left case
+
+   -> rotate right(c)
+
+   -> rotate  left (p)
+
+
+
+
+
+Time complexity:
+
+Log(N) + o(1)
+          |
+          V
+
+         for rotation
 
 
 

@@ -13,7 +13,7 @@ public class Main {
 
 
         Parent.testin();   // work
-        Parent.method();// parent call panna mudiyaathu aana child inherit panni call panlam
+       // Parent .method();// parent call panna mudiyaathu aana child inherit panni call panlam
         son.method(); // ippadi
 
     }

@@ -1,0 +1,100 @@
+Thread
+
+
+
+    in computer
+    there is a software
+
+                and os
+
+
+        os supports multiple process  running at an same time .  the multiple task can be achived by time sharing in java.
+
+        but in an single sw  can perform multiuple task like  eg ) Note pad  one thread find error and another thread can write
+
+
+        🔹 Process: When you run multiple software applications (e.g., Chrome, VS Code, and Eclipse), each software runs as a separate process in the OS.
+
+        🔹 Threads: Inside a single software (e.g., Chrome), multiple tasks run simultaneously as threads (e.g., one thread loads a webpage, another plays a video, another handles user input).
+
+
+
+
+Scheduler helps to which threads to run to execute
+
+
+
+
+ diff
+
+   shares the same memory eith other threads                   . it has sepereate memory.
+   Execution speed faster                                        slower compared to thread
+
+
+
+
+
+
+
+
+MULTITHREAD
+
+-> Multi-threading in Java is the ability to run multiple threads concurrently within a single process to maximize CPU utilization.
+-> Each thread is an independent path of execution, running separately but sharing the same memory space.
+-> java provides built in support in java    using thread class and runnable interface
+
+Thread
+ A thread in Java is the smallest unit of execution within a process.
+  It is a lightweight subprocess that allows parallel execution of tasks.
+
+ 2. How do you create a thread in Java?
+:
+ *"There are two ways to create a thread in Java:
+
+ Extending the Thread class – by overriding the run() method.
+ Implementing the Runnable interface – by passing an instance to the Thread constructor."*
+
+
+class MyThread extends Thread {
+    public void run() {
+    System.out.println("Thread running...");
+
+     }
+}
+public class Main {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        t1.start(); // Creates a new thread and call run method intenally
+    }
+
+
+}
+
+
+
+
+3. What is the difference between start() and run() method?
+
+"The start() method creates a new thread and executes the run() method in that thread, allowing concurrent execution.
+
+The run() method, when called directly, runs in the same thread as the caller and does not create a new thread."
+does not provide multitread fbenefits
+
+
+5. What are different thread states in Java?
+Answer:
+Java threads have six states in the Thread.State enum:
+
+NEW – Thread is created but not started.
+RUNNABLE – Thread is ready to run and waiting for CPU.
+BLOCKED – Thread is waiting for a monitor lock.
+WAITING – Thread is waiting indefinitely for another thread’s signal.
+TIMED_WAITING – Thread is waiting for a specific time.
+TERMINATED – Thread has finished execution.
+
+
+
+
+
+
+

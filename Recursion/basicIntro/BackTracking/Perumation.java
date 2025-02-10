@@ -21,7 +21,7 @@ public class Perumation {
         }
         for(int i:nums)
         {
-            if(inner.contains(i))
+            if(inner.contains(i))//
                 continue;
             inner.add(i);
             p(nums,a,inner);
@@ -29,5 +29,6 @@ public class Perumation {
 
         }
     }
+
 
 }
