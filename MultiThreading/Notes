@@ -8,6 +8,7 @@ Thread
                 and os
 
 
+
         os supports multiple process  running at an same time .  the multiple task can be achived by time sharing in java.
 
         but in an single sw  can perform multiuple task like  eg ) Note pad  one thread find error and another thread can write
@@ -27,7 +28,8 @@ Scheduler helps to which threads to run to execute
 
  diff
 
-   shares the same memory eith other threads                   . it has sepereate memory.
+   shares the same memory with other threads                   . it has sepereate memory.
+
    Execution speed faster                                        slower compared to thread
 
 
